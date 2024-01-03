@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,18 +6,21 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private Animator _animl;
+    public Animator Anim => _animl;
     [Header("プレイヤーの動きに関する数値")]
     [SerializeField]
-    float _speed = 5f;
+    private float  _speed = 5f;
     public float Speed => _speed;
     [Header("プレイヤーの攻撃に関する数値")]
-    float _power = 1f;
+    private float _power = 1f;
     public float Power => _power;
 
-    PlayerMoveState _move;
-    PlayerAttackState _attack;
+    private  PlayerMoveState _move;
+    private PlayerAttackState _attack;
 
-    Rigidbody _rb;
+    private Rigidbody _rb;
     public Rigidbody Rb
     {
         get => _rb;
@@ -25,12 +29,13 @@ public class Player : MonoBehaviour
             _rb = value;
         }
     }
-    PlayerState _state = PlayerState.Move;
+    private PlayerState _state = PlayerState.Move;
     public PlayerState State
     {
         get => _state;
         set
         {
+            if (_state == value) return;
             _state = value;
             switch (_state)
             {
@@ -43,7 +48,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    Vector3 _direction;
+    private Vector3 _direction;
     public Vector3 Direction => _direction;
 
 
@@ -60,15 +65,12 @@ public class Player : MonoBehaviour
         _attack = new PlayerAttackState(this);
     }
 
-    private void Start()
+    private void Update()
     {
         switch (_state)
         {
             case PlayerState.Move:
                 _move.Update();
-                break;
-            case PlayerState.Attack:
-                _attack.Update();
                 break;
         }
     }
@@ -80,16 +82,25 @@ public class Player : MonoBehaviour
             case PlayerState.Move:
                 _move.FixedUpdate();
                 break;
-            case PlayerState.Attack:
-                _attack.FixedUpdate();
-                break;
         }
+    }
+
+    public void StateChange(PlayerState state)
+    {
+        State = state;
     }
 
     public void OnMove(InputAction.CallbackContext callback)
     {
         var dir = callback.ReadValue<Vector2>();
         _direction = new Vector3(dir.x, 0, dir.y);
+    }
+
+    float index;
+    public void OnAttack()
+    {
+        Debug.Log(index++);
+        StateChange(PlayerState.Attack);
     }
 }
 

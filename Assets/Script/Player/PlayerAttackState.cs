@@ -1,17 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackState : IStateMachine
 {
-    Player _player;
+    private Player _player;
+    private float _index;
     public PlayerAttackState(Player player)
     {
         _player = player;
     }
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        _index++;
+        if(_index > 3)
+        {
+            _index = 1;
+        }
+        //Debug.Log(_index);
+        switch(_index)
+        {
+            case 1:
+                _player.Anim.Play("Attack1");
+                break;
+            case 2:
+                _player.Anim.Play("Attack2");
+                break;
+            case 3:
+                _player.Anim.Play("Attack3");
+                break;
+        }
+        _player.StateChange(Player.PlayerState.Move);
     }
 
     public void Exit()
