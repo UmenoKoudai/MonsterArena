@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,9 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float  _speed = 5f;
     public float Speed => _speed;
-    [Header("プレイヤーの攻撃に関する数値")]
-    private float _power = 1f;
-    public float Power => _power;
+    [SerializeField]
+    private Transform _movePos;
+    public Transform MovePos => _movePos;
 
     private  PlayerMoveState _move;
     private PlayerAttackState _attack;
@@ -72,6 +70,9 @@ public class Player : MonoBehaviour
             case PlayerState.Move:
                 _move.Update();
                 break;
+            case PlayerState.Attack:
+                _attack.Update();
+                break;
         }
     }
 
@@ -88,19 +89,6 @@ public class Player : MonoBehaviour
     public void StateChange(PlayerState state)
     {
         State = state;
-    }
-
-    public void OnMove(InputAction.CallbackContext callback)
-    {
-        var dir = callback.ReadValue<Vector2>();
-        _direction = new Vector3(dir.x, 0, dir.y);
-    }
-
-    float index;
-    public void OnAttack()
-    {
-        Debug.Log(index++);
-        StateChange(PlayerState.Attack);
     }
 }
 

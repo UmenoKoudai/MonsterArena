@@ -1,31 +1,37 @@
 using UnityEngine;
+using Cysharp.Threading;
+using Cysharp.Threading.Tasks;
+using System;
 
 public class PlayerAttackState : IStateMachine
 {
     private Player _player;
     private float _index;
+    private float _animationTime;
+    private bool _isAnimation;
+
     public PlayerAttackState(Player player)
     {
         _player = player;
     }
     public void Enter()
     {
+        if (_isAnimation)return;
         _index++;
         if(_index > 3)
         {
             _index = 1;
         }
-        //Debug.Log(_index);
         switch(_index)
         {
             case 1:
-                _player.Anim.Play("Attack1");
+                AnimationInterval("Attack1", 1.05f);
                 break;
             case 2:
-                _player.Anim.Play("Attack2");
+                AnimationInterval("Attack2", 1.22f);
                 break;
             case 3:
-                _player.Anim.Play("Attack3");
+                AnimationInterval("Attack3", 1.04f);
                 break;
         }
         _player.StateChange(Player.PlayerState.Move);
@@ -43,6 +49,29 @@ public class PlayerAttackState : IStateMachine
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        if(!_isAnimation)
+        {
+            _player.StateChange(Player.PlayerState.Move);
+        }
+    }
+
+    async void AnimationInterval(string name, float interval)
+    {
+        _isAnimation = true;
+        _player.Anim.SetBool(name, _isAnimation);
+        var a = await AnimationEnd(interval);
+        _isAnimation = !a;
+        _player.Anim.SetBool(name, _isAnimation);
+    }
+
+    async UniTask<bool> AnimationEnd(float interval)
+    {
+        float time = 0f;
+        while(interval > time)
+        {
+            time += Time.deltaTime;
+            await UniTask.Delay(1);
+        }
+        return true;
     }
 }

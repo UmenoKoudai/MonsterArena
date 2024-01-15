@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class PlayerMoveState : IStateMachine
@@ -29,7 +30,7 @@ public class PlayerMoveState : IStateMachine
         var dirForward = Vector3.forward * _v + Vector3.right * _h;
         dirForward = Camera.main.transform.TransformDirection(dirForward);
         dirForward.y = 0;
-        if(_h != 0 || _v != 0)
+        if(_v != 0)
         {
             _player.transform.forward = dirForward;
         }
@@ -39,6 +40,11 @@ public class PlayerMoveState : IStateMachine
     public void Update()
     {
         _player.Anim.SetFloat("Speed", _player.Rb.velocity.magnitude);
+        var currentMouse = Mouse.current;
+        if(currentMouse.leftButton.wasPressedThisFrame)
+        {
+            _player.StateChange(Player.PlayerState.Attack);
+        }
     }
 
 }
