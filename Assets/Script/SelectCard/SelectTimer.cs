@@ -19,7 +19,7 @@ public class SelectTimer : MonoBehaviour
 
     private int _defaultTimer;
 
-    private async void Start()
+    private async void Init()
     {
         _timerCount.text = _maxTimer.ToString();
         _defaultTimer = _maxTimer;

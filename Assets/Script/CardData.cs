@@ -1,21 +1,22 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CardData", menuName = "CardData")]
 public class CardData : ScriptableObject
 {
+    [SerializeField, Tooltip("カードのアイコン")]
+    private Sprite _cardIcon;
+    public Sprite CardIcon => _cardIcon;
+
     [SerializeField]
     private List<Data> data = new List<Data>();
     public List<Data> Data => data;
 }
 
+[Serializable]
 public class Data
-{
-    /// <summary>カードのアイコン</summary>
-    [SerializeField, Tooltip("カードのアイコン")]
-    private Sprite _cardIcon;
-    public Sprite CardIcon => _cardIcon;
-
+{ 
     /// <summary>カードの優先度</summary>
     [SerializeField, Tooltip("カードの優先度")]
     private int _priority;

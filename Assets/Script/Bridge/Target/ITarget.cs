@@ -1,4 +1,4 @@
 public interface ITarget
 {
-    public abstract void Target();
+    public abstract void Set();
 }
