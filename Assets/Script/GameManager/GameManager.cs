@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(_turn == NowTurn.Player)
+        if (_turn == NowTurn.Player)
         {
             _player.ManualFixedUpdate();
         }

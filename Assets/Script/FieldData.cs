@@ -14,9 +14,9 @@ public class FieldData : MonoBehaviour
             return _instance;
         }
     }
-
-    public PlayerTurn PlayerTurn;
-    public EnemyTurn EnemyTurn;
-    public Player Player;
-    public Enemy Enemy;
+    public PlayerTurn PlayerTurn { get; set; }
+    public EnemyTurn EnemyTurn { get; set; }
+    public Player Player { get; set; }
+    public Enemy Enemy { get; set; }
+    public Queue<Card> SelectCard {  get; set; }
 }
