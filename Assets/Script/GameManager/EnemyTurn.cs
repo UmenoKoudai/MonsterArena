@@ -8,6 +8,7 @@ public class EnemyTurn : TurnBase
 
     public Action<GameManager.NowTurn> OnTurnChange;
 
+    public Action<GameManager.NowTurn> ChangeTurn;
     private Phase _phase;
     public Phase NowPhase
     {
@@ -47,17 +48,17 @@ public class EnemyTurn : TurnBase
         EntTurn,
     }
 
-    public void Init()
+    public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
         FieldData.Instance.EnemyTurn = this;
         _stand = new Stand();
         _select = new Select();
         _attack = new Attack();
         _endTurn = new EndTurn();
-        _stand.Init(this);
-        _select.Init(this);
-        _attack.Init(this);
-        _endTurn.Init(this);
+        _stand.Init(enemy:this);
+        _select.Init(enemy:this);
+        _attack.Init(enemy:this);
+        _endTurn.Init(gameManager, changeTurn, enemyTurn:this);
     }
 
     public void ManualUpdate()
@@ -96,5 +97,10 @@ public class EnemyTurn : TurnBase
                 _endTurn.FixedUpdate();
                 break;
         }
+    }
+
+    public void StateChange(Phase change)
+    {
+        NowPhase = change;
     }
 }

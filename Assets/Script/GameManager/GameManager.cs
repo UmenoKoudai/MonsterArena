@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     EnemyTurn _enemy;
 
-    private NowTurn _turn;
+    private NowTurn _turn = NowTurn.None;
     public NowTurn Turn
     {
         get => _turn;
@@ -20,25 +20,27 @@ public class GameManager : MonoBehaviour
 
     public enum NowTurn
     {
+        None,
         Player,
         Enemy,
     }
 
     private void Awake()
     {
-        _player.Init();
-        _enemy.Init();
+        _player.Init(this, NowTurn.Enemy);
+        _enemy.Init(this, NowTurn.Player);
     }
 
     private void Update()
     {
+        if (Input.GetButtonDown("Fire1")) { TurnChange(NowTurn.Player); Debug.Log("ç∂ÉNÉäÉbÉN"); }
         if (_turn == NowTurn.Player)
         {
-            _player.ManualFixedUpdate();
+            _player.ManualUpdate();
         }
         else
         {
-            _enemy.ManualFixedUpdate();
+            _enemy.ManualUpdate();
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TurnBase : MonoBehaviour
@@ -40,8 +41,9 @@ public class TurnBase : MonoBehaviour
 
     [SerializeField]
     private SelectCard _selectCard;
-    public SelectCard SelectCardScript
-    {
-        get => _selectCard;
-    }
+    public SelectCard SelectCardScript => _selectCard;
+
+    [SerializeField]
+    private SelectTimer _selectTimer;
+    public SelectTimer SelectTimer => _selectTimer;
 }

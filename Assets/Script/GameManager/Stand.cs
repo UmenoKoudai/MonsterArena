@@ -1,28 +1,32 @@
+using UnityEngine;
+
 public class Stand : IStateMachine
 {
-    TurnBase _turn;
-    public void Init(TurnBase turn)
+    PlayerTurn _player;
+    EnemyTurn _enemy;
+    public void Init(PlayerTurn player = null, EnemyTurn enemy = null)
     {
-        _turn = turn;
+        if(!(player is null)) _player = player;
+        if(!(enemy is null)) _enemy = enemy;
+        Debug.Log($"Player:{ _player is null}");
     }
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        _player?.StateChange(PlayerTurn.Phase.Select);
+        _enemy?.StateChange(EnemyTurn.Phase.Select);
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
     }
 
     public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        _player?.StateChange(PlayerTurn.Phase.Select);
     }
 }

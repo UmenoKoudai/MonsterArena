@@ -12,7 +12,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869cf2b325b7fd04995b1da0b380d028, type: 3}
   m_Name: AttackBuffCard
   m_EditorClassIdentifier: 
-  data: []
+  _cardIcon: {fileID: -1789726605, guid: 9843fe9167e87fd409880f4cc8b2a827, type: 3}
+  data:
+  - _priority: 1
+    _ability:
+      rid: 5120902363165753344
+    _target:
+      rid: 5120902363165753345
+  - _priority: 2
+    _ability:
+      rid: 5120902363165753346
+    _target:
+      rid: 5120902363165753347
+  - _priority: 3
+    _ability:
+      rid: 5120902363165753348
+    _target:
+      rid: 5120902363165753349
+  - _priority: 4
+    _ability:
+      rid: 5120902363165753350
+    _target:
+      rid: 5120902363165753351
+  - _priority: 5
+    _ability:
+      rid: 5120902363165753352
+    _target:
+      rid: 5120902363165753353
+  - _priority: 6
+    _ability:
+      rid: 5120902363165753354
+    _target:
+      rid: 5120902363165753355
+  - _priority: 7
+    _ability:
+      rid: 5120902363165753356
+    _target:
+      rid: 5120902363165753357
+  - _priority: 8
+    _ability:
+      rid: 5120902363165753358
+    _target:
+      rid: 5120902363165753359
+  - _priority: 9
+    _ability:
+      rid: 5120902363165753360
+    _target:
+      rid: 5120902363165753361
+  - _priority: 10
+    _ability:
+      rid: 5120902363165753362
+    _target:
+      rid: 5120902363165753363
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5120902363165753344
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753345
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753346
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753347
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753348
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753349
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753350
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753351
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753352
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753353
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753354
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753355
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753356
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753357
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753358
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753359
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753360
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753361
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753362
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753363
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 

@@ -16,56 +16,114 @@ MonoBehaviour:
   data:
   - _priority: 1
     _ability:
-      rid: -2
+      rid: 5120902363165753364
     _target:
-      rid: -2
+      rid: 5120902363165753365
   - _priority: 2
     _ability:
-      rid: -2
+      rid: 5120902363165753366
     _target:
-      rid: -2
+      rid: 5120902363165753367
   - _priority: 3
     _ability:
-      rid: -2
+      rid: 5120902363165753368
     _target:
-      rid: -2
+      rid: 5120902363165753369
   - _priority: 4
     _ability:
-      rid: -2
+      rid: 5120902363165753370
     _target:
-      rid: -2
+      rid: 5120902363165753371
   - _priority: 5
     _ability:
-      rid: -2
+      rid: 5120902363165753372
     _target:
-      rid: -2
+      rid: 5120902363165753373
   - _priority: 6
     _ability:
-      rid: -2
+      rid: 5120902363165753374
     _target:
-      rid: -2
+      rid: 5120902363165753375
   - _priority: 7
     _ability:
-      rid: -2
+      rid: 5120902363165753377
     _target:
-      rid: -2
+      rid: 5120902363165753376
   - _priority: 8
     _ability:
-      rid: -2
+      rid: 5120902363165753379
     _target:
-      rid: -2
+      rid: 5120902363165753378
   - _priority: 9
     _ability:
-      rid: -2
+      rid: 5120902363165753380
     _target:
-      rid: -2
+      rid: 5120902363165753381
   - _priority: 10
     _ability:
-      rid: -2
+      rid: 5120902363165753382
     _target:
-      rid: -2
+      rid: 5120902363165753383
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5120902363165753364
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753365
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753366
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753367
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753368
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753369
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753370
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753371
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753372
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753373
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753374
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753375
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753376
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753377
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753378
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753379
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753380
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753381
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753382
+      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5120902363165753383
+      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
+      data: 

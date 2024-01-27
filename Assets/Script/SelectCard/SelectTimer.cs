@@ -1,8 +1,5 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,21 +16,25 @@ public class SelectTimer : MonoBehaviour
 
     private int _defaultTimer;
 
-    private async void Init()
+    public async UniTask Init()
     {
         _timerCount.text = _maxTimer.ToString();
         _defaultTimer = _maxTimer;
+        Debug.Log("TimerStart");
         await Timer();
+        Debug.Log("TimerEnd");
     }
 
-    async UniTask<bool> Timer()
+    async UniTask Timer()
     {
-        while (true)
+        while (_maxTimer >= 0)
         {
-            if (_maxTimer <= 0) return true;
+            Debug.Log("TimerCount’†");
             _maxTimer--;
+            _timerCount.text = _maxTimer.ToString();
             _timerGauge.fillAmount -= 1 / _defaultTimer;
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
+        _maxTimer = _defaultTimer;
     }
 }

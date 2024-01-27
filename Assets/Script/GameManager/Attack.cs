@@ -1,28 +1,31 @@
+using UnityEngine;
+
 public class Attack : IStateMachine
 {
-    TurnBase _turn;
-    public void Init(TurnBase turn)
+    PlayerTurn _player;
+    EnemyTurn _enemy;
+    public void Init(PlayerTurn player = null, EnemyTurn enemy = null)
     {
-        _turn = turn;
+        if (!(player is null)) _player = player;
+        if(!(enemy is null)) _enemy = enemy;
     }
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Attack");
+        _player?.StateChange(PlayerTurn.Phase.EntTurn);
+        _enemy?.StateChange(EnemyTurn.Phase.EntTurn);
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
     }
 
     public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
     }
 }

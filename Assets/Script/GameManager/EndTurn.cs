@@ -1,28 +1,31 @@
 public class EndTurn : IStateMachine
 {
-    TurnBase _turn;
-    public void Init(TurnBase turn)
+    private GameManager _gameManager;
+    private PlayerTurn _player;
+    private EnemyTurn _enemy;
+    GameManager.NowTurn _changeTurn;
+    public void Init(GameManager gameManager, GameManager.NowTurn change, PlayerTurn playerTurn = null, EnemyTurn enemyTurn = null)
     {
-        _turn = turn;
+        if(playerTurn != null) _player = playerTurn;
+        if(enemyTurn != null) _enemy = enemyTurn;
+        _gameManager = gameManager;
+        _changeTurn = change;
     }
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        _gameManager.TurnChange(_changeTurn);
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
     }
 
     public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 public class PlayerTurn : TurnBase
 {
     [SerializeField]
-    Player _player;
+    private Player _player;
+    public Player Player => _player;
 
     public Action<GameManager.NowTurn> OnTurnChange;
 
+    private GameManager _gameManager;
     private Phase _phase;
     public Phase NowPhase
     {
@@ -47,20 +49,22 @@ public class PlayerTurn : TurnBase
         EntTurn,
     }
 
-    public void Init()
+    public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
         _stand = new Stand();
         _select = new Select();
         _attack = new Attack();
         _endTurn = new EndTurn();
-        _stand.Init(this);
+        _stand.Init(player: this);
         _select.Init(this);
         _attack.Init(this);
-        _endTurn.Init(this);
+        _endTurn.Init(gameManager, changeTurn, this);
     }
 
     public void ManualUpdate()
     {
+        Debug.Log("プレイヤーアップデート");
+        Debug.Log(_phase);
         switch (_phase)
         {
             case Phase.Stand:
@@ -95,5 +99,10 @@ public class PlayerTurn : TurnBase
                 _endTurn.FixedUpdate();
                 break;
         }
+    }
+
+    public void StateChange(Phase change)
+    {
+        NowPhase = change;
     }
 }
