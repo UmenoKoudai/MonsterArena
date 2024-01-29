@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")) { TurnChange(NowTurn.Player); Debug.Log("ç∂ÉNÉäÉbÉN"); }
+        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Player);
         if (_turn == NowTurn.Player)
         {
             _player.ManualUpdate();

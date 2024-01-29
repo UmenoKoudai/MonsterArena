@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnBase : MonoBehaviour
 {
@@ -46,4 +47,12 @@ public class TurnBase : MonoBehaviour
     [SerializeField]
     private SelectTimer _selectTimer;
     public SelectTimer SelectTimer => _selectTimer;
+
+    [SerializeField]
+    private Image _standByField;
+    public Image StandByField => _standByField;
+
+    [SerializeField]
+    private Image _attackField;
+    public Image AttackField => _attackField;
 }

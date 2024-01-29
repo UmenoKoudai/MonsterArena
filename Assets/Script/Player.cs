@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     }
     private void Awake()
     {
+        FieldData.Instance.Player = this;
         _rb = GetComponent<Rigidbody>();
     }
 }

@@ -15,26 +15,28 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
-        Debug.Log("セレクトフェーズ");
         if(_isPlayer)
         {
             _player.SelectCardScript.gameObject.SetActive(true);
-            if (_player.SelectCardScript is null) Debug.Log("nullだよ");
-            _player.SelectCardScript.Init();
+            _player.SelectCardScript.Init(SelectCard.Turn.Player);
             await _player.SelectTimer.Init();
+            Exit();
             _player.StateChange(PlayerTurn.Phase.Attack);
         }
         else
         {
             _enemy.SelectCardScript.gameObject?.SetActive(true);
-            _enemy.SelectCardScript.Init();
+            _enemy.SelectCardScript.Init(SelectCard.Turn.Enemy);
             await _enemy.SelectTimer.Init();
+            Exit();
             _enemy.StateChange(EnemyTurn.Phase.Attack);
         }
     }
 
     public void Exit()
     {
+        if(!(_player is null)) _player.SelectCardScript?.gameObject?.SetActive(false);
+        else _enemy.SelectCardScript?.gameObject?.SetActive(false);
     }
 
     public void FixedUpdate()
@@ -43,5 +45,7 @@ public class Select : IStateMachine
 
     public void Update()
     {
+        if (_isPlayer) _player.SelectCardScript.ManualUpdate(SelectCard.Turn.Player);
+        else _enemy.SelectCardScript.ManualUpdate(SelectCard.Turn.Enemy);
     }
 }

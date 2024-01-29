@@ -51,6 +51,7 @@ public class PlayerTurn : TurnBase
 
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
+        FieldData.Instance.PlayerTurn = this;
         _stand = new Stand();
         _select = new Select();
         _attack = new Attack();
@@ -63,8 +64,6 @@ public class PlayerTurn : TurnBase
 
     public void ManualUpdate()
     {
-        Debug.Log("プレイヤーアップデート");
-        Debug.Log(_phase);
         switch (_phase)
         {
             case Phase.Stand:

@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        FieldData.Instance.Enemy = this;
         _rb = GetComponent<Rigidbody>();
     }
 }

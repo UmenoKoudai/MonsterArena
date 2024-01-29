@@ -20,19 +20,16 @@ public class SelectTimer : MonoBehaviour
     {
         _timerCount.text = _maxTimer.ToString();
         _defaultTimer = _maxTimer;
-        Debug.Log("TimerStart");
         await Timer();
-        Debug.Log("TimerEnd");
     }
 
     async UniTask Timer()
     {
-        while (_maxTimer >= 0)
+        while (_maxTimer > 0)
         {
-            Debug.Log("TimerCount’†");
             _maxTimer--;
             _timerCount.text = _maxTimer.ToString();
-            _timerGauge.fillAmount -= 1 / _defaultTimer;
+            _timerGauge.fillAmount -= 0.1f;
             await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
         _maxTimer = _defaultTimer;

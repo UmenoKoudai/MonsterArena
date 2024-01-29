@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +13,22 @@ public class FieldData : MonoBehaviour
             return _instance;
         }
     }
-    public PlayerTurn PlayerTurn { get; set; }
-    public EnemyTurn EnemyTurn { get; set; }
-    public Player Player { get; set; }
-    public Enemy Enemy { get; set; }
-    public Queue<Card> SelectCard {  get; set; }
+
+    private PlayerTurn _playerTurn;
+    public PlayerTurn PlayerTurn { get => _playerTurn; set => _playerTurn = value; }
+    private EnemyTurn _enemyTurn;
+    public EnemyTurn EnemyTurn { get => _enemyTurn; set => _enemyTurn = value; }
+    private Player _player;
+    public Player Player { get => _player; set => _player = value; }
+    private Enemy _enemy;
+    public Enemy Enemy { get => _enemy; set => _enemy = value; }
+    private Queue<Card> _selectCard = new Queue<Card>();
+    public Queue<Card> SelectCard {  get => _selectCard; set => _selectCard = value; }
+    private int _priority = 0;
+    public int Priority { get => _priority; set => _priority = value; }
+
+    public void DestroyObject(GameObject obj)
+    {
+        obj.transform.position = new Vector3(0, 0, -100);
+    }
 }

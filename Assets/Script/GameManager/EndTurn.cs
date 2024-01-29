@@ -15,6 +15,8 @@ public class EndTurn : IStateMachine
     public void Enter()
     {
         _gameManager.TurnChange(_changeTurn);
+        if (!(_player is null)) _player.StateChange(PlayerTurn.Phase.Stand);
+        else _enemy.StateChange(EnemyTurn.Phase.Stand);
     }
 
     public void Exit()
