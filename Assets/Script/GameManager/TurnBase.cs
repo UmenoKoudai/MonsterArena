@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,4 +54,21 @@ public class TurnBase : MonoBehaviour
     [SerializeField]
     private Image _attackField;
     public Image AttackField => _attackField;
+
+    [SerializeField]
+    private GameObject[] _selectObject;
+    public GameObject[] SelectObject => _selectObject;
+
+    public enum Phase
+    {
+        Stand,
+        Select,
+        Attack,
+        EntTurn,
+    }
+
+    public virtual void StateChange(Phase change)
+    {
+        Debug.LogError("オーバーライドしていません");
+    }
 }

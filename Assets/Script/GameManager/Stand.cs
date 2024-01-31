@@ -1,20 +1,16 @@
-using UnityEngine;
+using Cysharp.Threading.Tasks;
+using System;
 
 public class Stand : IStateMachine
 {
-    PlayerTurn _player;
-    EnemyTurn _enemy;
-    public void Init(PlayerTurn player = null, EnemyTurn enemy = null)
+    TurnBase _turnBase;
+    public Stand(TurnBase turnBase)
     {
-        if(!(player is null)) _player = player;
-        if(!(enemy is null)) _enemy = enemy;
-        Debug.Log($"Player:{ _player is null}");
+        _turnBase = turnBase;
     }
 
     public void Enter()
     {
-        _player?.StateChange(PlayerTurn.Phase.Select);
-        _enemy?.StateChange(EnemyTurn.Phase.Select);
     }
 
     public void Exit()
@@ -25,8 +21,9 @@ public class Stand : IStateMachine
     {
     }
 
-    public void Update()
+    public async void Update()
     {
-        _player?.StateChange(PlayerTurn.Phase.Select);
+        await UniTask.Delay(TimeSpan.FromSeconds(2));
+        _turnBase.StateChange(TurnBase.Phase.Select);
     }
 }

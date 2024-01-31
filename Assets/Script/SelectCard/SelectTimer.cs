@@ -18,6 +18,7 @@ public class SelectTimer : MonoBehaviour
 
     public async UniTask Init()
     {
+        _timerGauge.fillAmount = 1;
         _timerCount.text = _maxTimer.ToString();
         _defaultTimer = _maxTimer;
         await Timer();

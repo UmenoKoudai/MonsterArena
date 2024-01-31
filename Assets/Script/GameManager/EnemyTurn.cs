@@ -1,14 +1,10 @@
-using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTurn : TurnBase
 {
     [SerializeField]
     Enemy _enemy;
-
-    public Action<GameManager.NowTurn> OnTurnChange;
-
-    public Action<GameManager.NowTurn> ChangeTurn;
     private Phase _phase;
     public Phase NowPhase
     {
@@ -40,29 +36,19 @@ public class EnemyTurn : TurnBase
     private Attack _attack;
     private EndTurn _endTurn;
 
-    public enum Phase
-    {
-        Stand,
-        Select,
-        Attack,
-        EntTurn,
-    }
 
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
         FieldData.Instance.EnemyTurn = this;
-        _stand = new Stand();
-        _select = new Select();
-        _attack = new Attack();
-        _endTurn = new EndTurn();
-        _stand.Init(enemy:this);
-        _select.Init(enemy:this);
-        _attack.Init(enemy:this);
-        _endTurn.Init(gameManager, changeTurn, enemyTurn:this);
+        _stand = new Stand(this);
+        _select = new Select(this, SelectCard.Turn.Player);
+        _attack = new Attack(this);
+        _endTurn = new EndTurn(gameManager, changeTurn, this);
     }
 
     public void ManualUpdate()
     {
+        Debug.Log($"EnemyPhase: {_phase}");
         switch (_phase)
         {
             case Phase.Stand:
@@ -99,7 +85,7 @@ public class EnemyTurn : TurnBase
         }
     }
 
-    public void StateChange(Phase change)
+    public override void StateChange(Phase change)
     {
         NowPhase = change;
     }

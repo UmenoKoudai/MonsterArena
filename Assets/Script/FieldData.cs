@@ -29,6 +29,7 @@ public class FieldData : MonoBehaviour
 
     public void DestroyObject(GameObject obj)
     {
-        obj.transform.position = new Vector3(0, 0, -100);
+        obj.transform.SetParent(transform);
+        obj.transform.position = new Vector3(-999, -999, -999);
     }
 }

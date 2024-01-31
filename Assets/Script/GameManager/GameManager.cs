@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Player);
+        Debug.Log($"NowTurn:{_turn}");
+        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Enemy);
         if (_turn == NowTurn.Player)
         {
             _player.ManualUpdate();

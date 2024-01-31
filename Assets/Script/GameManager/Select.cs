@@ -1,42 +1,33 @@
-using UnityEngine;
-
 public class Select : IStateMachine
 {
-    private PlayerTurn _player;
-    private EnemyTurn _enemy;
-    private bool _isPlayer = false;
+    private TurnBase _turnBase;
+    private SelectCard.Turn _turn;
 
-    public void Init(PlayerTurn player = null, EnemyTurn enemy = null)
+    public Select(TurnBase turnBase, SelectCard.Turn turn)
     {
-        if (!(player is null)) _player = player;
-        if(!(enemy is null)) _enemy = enemy;
-        if(!(_player is null)) _isPlayer = true;
+        _turnBase = turnBase;
+        _turn = turn;
     }
 
     public async void Enter()
     {
-        if(_isPlayer)
+        foreach (var obj in _turnBase.SelectObject)
         {
-            _player.SelectCardScript.gameObject.SetActive(true);
-            _player.SelectCardScript.Init(SelectCard.Turn.Player);
-            await _player.SelectTimer.Init();
-            Exit();
-            _player.StateChange(PlayerTurn.Phase.Attack);
+            obj.SetActive(true);
         }
-        else
-        {
-            _enemy.SelectCardScript.gameObject?.SetActive(true);
-            _enemy.SelectCardScript.Init(SelectCard.Turn.Enemy);
-            await _enemy.SelectTimer.Init();
-            Exit();
-            _enemy.StateChange(EnemyTurn.Phase.Attack);
-        }
+        _turnBase.SelectCardScript.Init(_turn);
+        await _turnBase.SelectTimer.Init();
+        Exit();
+        _turnBase.StateChange(TurnBase.Phase.Attack);
     }
 
     public void Exit()
     {
-        if(!(_player is null)) _player.SelectCardScript?.gameObject?.SetActive(false);
-        else _enemy.SelectCardScript?.gameObject?.SetActive(false);
+        _turnBase.SelectCardScript.CardReset();
+        foreach (var obj in _turnBase.SelectObject)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void FixedUpdate()
@@ -45,7 +36,6 @@ public class Select : IStateMachine
 
     public void Update()
     {
-        if (_isPlayer) _player.SelectCardScript.ManualUpdate(SelectCard.Turn.Player);
-        else _enemy.SelectCardScript.ManualUpdate(SelectCard.Turn.Enemy);
+        _turnBase.SelectCardScript.ManualUpdate(_turn);
     }
 }

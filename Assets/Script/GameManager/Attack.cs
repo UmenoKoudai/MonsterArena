@@ -5,35 +5,26 @@ using UnityEngine.UI;
 
 public class Attack : IStateMachine
 {
-    private PlayerTurn _player;
-    private EnemyTurn _enemy;
+    private TurnBase _turnBase;
     private Queue<Card> _selectCard = new Queue<Card>();
     private Image _standByField = null;
     private Image _attackField = null;
     private List<Card> _useCard = new List<Card>();
 
-    public void Init(PlayerTurn player = null, EnemyTurn enemy = null)
+    public Attack(TurnBase turnBase)
     {
-        if (!(player is null))
-        {
-            _player = player;
-            _standByField = _player.StandByField;
-            _attackField = _player.AttackField;
-        }
-        if (!(enemy is null))
-        {
-            _enemy = enemy;
-            _standByField = _enemy.StandByField;
-            _attackField = _enemy.AttackField;
-        }
+        _turnBase = turnBase;
+        _standByField = turnBase.StandByField;
+        _attackField = turnBase.AttackField;
     }
 
     public async void Enter()
     {
         _selectCard = FieldData.Instance.SelectCard;
+        int selectCount = _selectCard.Count;
         _standByField.gameObject.SetActive(true);
         _attackField.gameObject.SetActive(true);
-        for (int i = 0; i < _selectCard.Count; i++)
+        for (int i = 0; i < selectCount; i++)
         {
             var card = _selectCard.Dequeue();
             _useCard.Add(card);
@@ -41,8 +32,7 @@ public class Attack : IStateMachine
         }
         await CardUse();
         Exit();
-        if (!(_player is null)) _player.StateChange(PlayerTurn.Phase.EntTurn);
-        else _enemy.StateChange(EnemyTurn.Phase.EntTurn);
+        _turnBase.StateChange(TurnBase.Phase.EntTurn);
     }
 
     async UniTask CardUse()
@@ -55,6 +45,7 @@ public class Attack : IStateMachine
             FieldData.Instance.DestroyObject(card.gameObject);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
+        _useCard.Clear();
     }
 
     public void Exit()
