@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"NowTurn:{_turn}");
         if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Enemy);
         if (_turn == NowTurn.Player)
         {

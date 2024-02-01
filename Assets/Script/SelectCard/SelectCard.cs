@@ -75,7 +75,6 @@ public class SelectCard : MonoBehaviour
         {
             if (Input.GetButtonDown("Left"))
             {
-                SelectCardLog();
                 var setCard = _setCard[(int)SetCard.Left];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -83,11 +82,9 @@ public class SelectCard : MonoBehaviour
                 card.transform.SetParent(_selectedField.transform);
                 FieldData.Instance.SelectCard.Enqueue(card);
                 CardDistribute(setCard);
-                SelectCardLog();
             }
             if (Input.GetButtonDown("Right"))
             {
-                SelectCardLog();
                 var setCard = _setCard[(int)SetCard.Right];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -95,11 +92,9 @@ public class SelectCard : MonoBehaviour
                 card.transform.SetParent(_selectedField.transform);
                 FieldData.Instance.SelectCard.Enqueue(card);
                 CardDistribute(setCard);
-                SelectCardLog();
             }
             if (Input.GetButtonDown("Up"))
             {
-                SelectCardLog();
                 var setCard = _setCard[(int)SetCard.Up];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -107,11 +102,9 @@ public class SelectCard : MonoBehaviour
                 card.transform.SetParent(_selectedField.transform);
                 FieldData.Instance.SelectCard.Enqueue(card);
                 CardDistribute(setCard);
-                SelectCardLog();
             }
             if (Input.GetButtonDown("Down"))
             {
-                SelectCardLog();
                 var setCard = _setCard[((int)SetCard.Down)];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -119,37 +112,25 @@ public class SelectCard : MonoBehaviour
                 card.transform.SetParent(_selectedField.transform);
                 FieldData.Instance.SelectCard.Enqueue(card);
                 CardDistribute(setCard);
-                SelectCardLog();
             }
         }
         else
         {
             Debug.Log("EnemySelect");
-            //_timer += Time.deltaTime;
-            //if(_timer > _enemyInterval)
-            //{
-            //    _timer = 0;
-            //    var get = _enemyCard[0];
-            //    if (FieldData.Instance.Priority > get._getCard.Priority) return;
-            //    _enemyCard.RemoveAt(0);
-            //    get._getCard.transform.SetParent(_selectedField.transform);
-            //    FieldData.Instance.SelectCard.Enqueue(get._getCard);
-            //    FieldData.Instance.Priority = get._getCard.Priority;
-            //    CardDistribute(get._deck);
-            //    _enemyCard.Add(new EnemyGetCard(get._deck, get._deck.GetComponentInChildren<Card>()));
-            //    Swap(_enemyCard[0], _enemyCard[_enemyCard.Count - 1]);
-            //}
-            SelectCardLog();
-            var get = _enemyCard[0];
-            _enemyCard.RemoveAt(0);
-            if (FieldData.Instance.Priority > get._getCard.Priority) return;
-            get._getCard.transform.SetParent(_selectedField.transform);
-            FieldData.Instance.SelectCard.Enqueue(get._getCard);
-            FieldData.Instance.Priority = get._getCard.Priority;
-            CardDistribute(get._deck);
-            _enemyCard.Add(new EnemyGetCard(get._deck, get._deck.GetComponentInChildren<Card>()));
-            Swap(_enemyCard[0], _enemyCard[_enemyCard.Count - 1]);
-            await UniTask.Delay(TimeSpan.FromSeconds(_enemyInterval));
+            _timer += Time.deltaTime;
+            if (_timer > _enemyInterval)
+            {
+                _timer = 0;
+                var get = _enemyCard[0];
+                _enemyCard.RemoveAt(0);
+                if (FieldData.Instance.Priority > get._getCard.Priority) return;
+                get._getCard.transform.SetParent(_selectedField.transform);
+                FieldData.Instance.SelectCard.Enqueue(get._getCard);
+                FieldData.Instance.Priority = get._getCard.Priority;
+                CardDistribute(get._deck);
+                _enemyCard.Add(new EnemyGetCard(get._deck, get._deck.GetComponentInChildren<Card>()));
+                Swap(_enemyCard[0], _enemyCard[_enemyCard.Count - 1]);
+            }
         }
     }
 
@@ -188,6 +169,7 @@ public class SelectCard : MonoBehaviour
         card.Ability = selectDeck.Data[cardIndex].Ability;
         card.Target = selectDeck.Data[cardIndex].Target;
         card.Priority = selectDeck.Data[cardIndex].Priority;
+        card.CardIcon = selectDeck.CardIcon;
     }
 
     void SelectCardLog()
@@ -198,14 +180,14 @@ public class SelectCard : MonoBehaviour
         }
     }
 
-    public void CardReset()
+    public async UniTask CardReset()
     {
         foreach (var index in Enum.GetValues(typeof(SetCard)))
         {
             var card = _setCard[(int)index].transform;
-            for (int i = 0; i < card.childCount; i++)
+            for(int i = 0; i < card.transform.childCount; i++)
             {
-                Destroy(card.GetChild(i));
+                Destroy(card.transform.GetChild(i).gameObject);
             }
         }
         FieldData.Instance.Priority = 0;

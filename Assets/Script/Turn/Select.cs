@@ -18,12 +18,12 @@ public class Select : IStateMachine
         _turnBase.SelectCardScript.Init(_turn);
         await _turnBase.SelectTimer.Init();
         Exit();
-        _turnBase.StateChange(TurnBase.Phase.Attack);
+        _turnBase.StateChange(TurnBase.Phase.Move);
     }
 
-    public void Exit()
+    public async void Exit()
     {
-        _turnBase.SelectCardScript.CardReset();
+        await _turnBase.SelectCardScript.CardReset();
         foreach (var obj in _turnBase.SelectObject)
         {
             obj.SetActive(false);

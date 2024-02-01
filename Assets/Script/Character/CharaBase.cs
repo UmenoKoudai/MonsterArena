@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class CharaBase : MonoBehaviour
 {
     [SerializeField]
     private Animator _animl;
@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Transform _movePos;
     public Transform MovePos => _movePos;
+    [SerializeField]
+    private float _interval;
+    public float Interval => _interval;
 
     private Rigidbody _rb;
     public Rigidbody Rb
@@ -21,11 +24,5 @@ public class Enemy : MonoBehaviour
         {
             _rb = value;
         }
-    }
-
-    private void Awake()
-    {
-        FieldData.Instance.Enemy = this;
-        _rb = GetComponent<Rigidbody>();
     }
 }

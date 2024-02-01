@@ -8,8 +8,8 @@ public class Card : MonoBehaviour
     [SerializeField]
     private Text _myText;
 
-    private Sprite[] _cardIcon;
-    public Sprite[] CardIcon 
+    private Sprite _cardIcon;
+    public Sprite CardIcon 
     {
         get => _cardIcon; 
         set
@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
             _cardIcon = value;
             for(int i = 0; i < 2; i++)
             {
-                _myImage[i].sprite = _cardIcon[i];
+                _myImage[i].sprite = _cardIcon;
             }
         }
     }

@@ -4,6 +4,10 @@ using UnityEngine.UI;
 public class TurnBase : MonoBehaviour
 {
     [SerializeField]
+    private CharaBase _character;
+    public CharaBase Character => _character;
+
+    [SerializeField]
     private GameObject SelectPanel;
 
     [SerializeField]
@@ -63,6 +67,7 @@ public class TurnBase : MonoBehaviour
     {
         Stand,
         Select,
+        Move,
         Attack,
         EntTurn,
     }
