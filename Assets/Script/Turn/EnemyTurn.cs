@@ -38,7 +38,7 @@ public class EnemyTurn : TurnBase
 
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
-        FieldData.Instance.EnemyTurn = this;
+        //FieldData.Instance.EnemyTurn = this;
         _stand = new Stand(this);
         _select = new Select(this, SelectCard.Turn.Enemy);
         _move = new Move(this);

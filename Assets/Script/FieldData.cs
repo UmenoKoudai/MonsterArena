@@ -14,14 +14,16 @@ public class FieldData : MonoBehaviour
         }
     }
 
-    private PlayerTurn _playerTurn;
-    public PlayerTurn PlayerTurn { get => _playerTurn; set => _playerTurn = value; }
-    private EnemyTurn _enemyTurn;
-    public EnemyTurn EnemyTurn { get => _enemyTurn; set => _enemyTurn = value; }
+    //private PlayerTurn _playerTurn;
+    //public PlayerTurn PlayerTurn { get => _playerTurn; set => _playerTurn = value; }
+    //private EnemyTurn _enemyTurn;
+    //public EnemyTurn EnemyTurn { get => _enemyTurn; set => _enemyTurn = value; }
     private Player _player;
     public Player Player { get => _player; set => _player = value; }
     private Enemy _enemy;
     public Enemy Enemy { get => _enemy; set => _enemy = value; }
+    private CharaBase _target;
+    public CharaBase Target { get => _target; set => _target = value; }
     private Queue<Card> _selectCard = new Queue<Card>();
     public Queue<Card> SelectCard {  get => _selectCard; set => _selectCard = value; }
     private int _priority = 0;

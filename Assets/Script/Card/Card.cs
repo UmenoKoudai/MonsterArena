@@ -42,6 +42,6 @@ public class Card : MonoBehaviour
     public void UseAbility()
     {
         Target.Set();
-        Ability.Use();
+        Ability.Use(FieldData.Instance);
     }
 }

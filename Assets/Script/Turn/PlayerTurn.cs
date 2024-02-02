@@ -38,7 +38,7 @@ public class PlayerTurn : TurnBase
 
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
-        FieldData.Instance.PlayerTurn = this;
+        //FieldData.Instance.PlayerTurn = this;
         _stand = new Stand(this);
         _select = new Select(this, SelectCard.Turn.Player);
         _move = new Move(this);

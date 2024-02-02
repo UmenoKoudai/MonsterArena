@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TestAbility : IAbility
 {
-    public void Use()
+    public void Use(FieldData data)
     {
         Debug.Log("TestAbility");
     }
