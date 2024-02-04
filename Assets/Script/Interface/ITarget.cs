@@ -1,4 +1,4 @@
 public interface ITarget
 {
-    public abstract void Set();
+    public abstract void Set(FieldData data);
 }

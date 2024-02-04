@@ -29,10 +29,4 @@ public class Data
     private IAbility _ability;
     public IAbility Ability => _ability;
 
-    /// <summary>カードのターゲット</summary>
-    [SerializeField, Tooltip("カードのターゲット")]
-    [SerializeReference]
-    [SubclassSelector]
-    private ITarget _target;
-    public ITarget Target => _target;
 }

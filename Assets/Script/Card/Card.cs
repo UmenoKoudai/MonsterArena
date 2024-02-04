@@ -35,13 +35,9 @@ public class Card : MonoBehaviour
 
     private IAbility _ability;
     public IAbility Ability { get => _ability; set => _ability = value; }
-    
-    private ITarget _target;
-    public ITarget Target { get => _target; set => _target = value; }
 
     public void UseAbility()
     {
-        Target.Set();
         Ability.Use(FieldData.Instance);
     }
 }

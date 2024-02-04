@@ -167,7 +167,6 @@ public class SelectCard : MonoBehaviour
         card.name = selectDeck.Data[cardIndex].Priority.ToString();
         card.transform.SetParent(selectCard.transform);
         card.Ability = selectDeck.Data[cardIndex].Ability;
-        card.Target = selectDeck.Data[cardIndex].Target;
         card.Priority = selectDeck.Data[cardIndex].Priority;
         card.CardIcon = selectDeck.CardIcon;
     }
