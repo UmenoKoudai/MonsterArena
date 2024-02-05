@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharaBase : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class CharaBase : MonoBehaviour
     [SerializeField]
     private float _interval;
     public float Interval => _interval;
+
+    [SerializeField]
+    private Slider _hpBar;
+    public Slider HpBar { get => _hpBar; set => _hpBar = value; }
 
     private Rigidbody _rb;
     public Rigidbody Rb
