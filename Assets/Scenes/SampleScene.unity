@@ -5608,6 +5608,9 @@ MonoBehaviour:
   _movePos: {fileID: 805474782}
   _interval: 0.5
   _hpBar: {fileID: 773087482}
+  _hp: 0
+  _attack: 0
+  _defense: 0
 --- !u!1 &1758095287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100036, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
@@ -7971,6 +7974,9 @@ MonoBehaviour:
   _movePos: {fileID: 1277664525}
   _interval: 0.5
   _hpBar: {fileID: 379450173}
+  _hp: 0
+  _attack: 0
+  _defense: 0
 --- !u!54 &5717370820427130343
 Rigidbody:
   m_ObjectHideFlags: 0

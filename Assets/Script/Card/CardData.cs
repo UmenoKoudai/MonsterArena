@@ -26,7 +26,7 @@ public class Data
     [SerializeField, Tooltip("ƒJ[ƒh‚ÌŒø‰Ê")]
     [SerializeReference]
     [SubclassSelector]
-    private IAbility _ability;
-    public IAbility Ability => _ability;
+    private List<IAbility> _ability = new List<IAbility>();
+    public List<IAbility> Ability => _ability;
 
 }

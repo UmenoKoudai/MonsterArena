@@ -16,8 +16,16 @@ public class GameManager : MonoBehaviour
         set
         {
             _turn = value;
-            if (_turn == NowTurn.Player) FieldData.Instance.Target = FieldData.Instance.Player;
-            else FieldData.Instance.Target = FieldData.Instance.Enemy;
+            if (_turn == NowTurn.Player)
+            {
+                FieldData.Instance.Target = FieldData.Instance.Enemy;
+                FieldData.Instance.Attacker = FieldData.Instance.Player;
+            }
+            else
+            {
+                FieldData.Instance.Target = FieldData.Instance.Player;
+                FieldData.Instance.Attacker = FieldData.Instance.Enemy;
+            }
         }
     }
 
@@ -32,8 +40,16 @@ public class GameManager : MonoBehaviour
     {
         _player.Init(this, NowTurn.Enemy);
         _enemy.Init(this, NowTurn.Player);
-        if (_turn == NowTurn.Player) FieldData.Instance.Target = FieldData.Instance.Player;
-        else FieldData.Instance.Target = FieldData.Instance.Enemy;
+        if (_turn == NowTurn.Player)
+        {
+            FieldData.Instance.Target = FieldData.Instance.Enemy;
+            FieldData.Instance.Attacker = FieldData.Instance.Player;
+        }
+        else
+        {
+            FieldData.Instance.Target = FieldData.Instance.Player;
+            FieldData.Instance.Attacker = FieldData.Instance.Enemy;
+        }
     }
 
     private void Update()

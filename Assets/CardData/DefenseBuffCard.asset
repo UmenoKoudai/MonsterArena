@@ -16,114 +16,124 @@ MonoBehaviour:
   data:
   - _priority: 1
     _ability:
-      rid: 5120902363165753384
-    _target:
-      rid: 5120902363165753385
+    - rid: 4106735522983968819
+    - rid: 4106735522983968820
   - _priority: 2
     _ability:
-      rid: 5120902363165753386
-    _target:
-      rid: 5120902363165753387
+    - rid: 4106735522983968821
+    - rid: 4106735522983968822
   - _priority: 3
     _ability:
-      rid: 5120902363165753388
-    _target:
-      rid: 5120902363165753389
+    - rid: 4106735522983968823
+    - rid: 4106735522983968824
   - _priority: 4
     _ability:
-      rid: 5120902363165753390
-    _target:
-      rid: 5120902363165753391
+    - rid: 4106735522983968825
+    - rid: 4106735522983968826
   - _priority: 5
     _ability:
-      rid: 5120902363165753392
-    _target:
-      rid: 5120902363165753393
+    - rid: 4106735522983968827
+    - rid: 4106735522983968828
   - _priority: 6
     _ability:
-      rid: 5120902363165753394
-    _target:
-      rid: 5120902363165753395
+    - rid: 4106735522983968829
+    - rid: 4106735522983968830
   - _priority: 7
     _ability:
-      rid: 5120902363165753396
-    _target:
-      rid: 5120902363165753397
+    - rid: 4106735522983968831
+    - rid: 4106735522983968832
   - _priority: 8
     _ability:
-      rid: 5120902363165753398
-    _target:
-      rid: 5120902363165753399
+    - rid: 4106735522983968833
+    - rid: 4106735522983968834
   - _priority: 9
     _ability:
-      rid: 5120902363165753400
-    _target:
-      rid: 5120902363165753401
+    - rid: 4106735522983968835
+    - rid: 4106735522983968836
   - _priority: 10
     _ability:
-      rid: 5120902363165753402
-    _target:
-      rid: 5120902363165753403
+    - rid: 4106735522983968837
+    - rid: 4106735522983968838
   references:
     version: 2
     RefIds:
-    - rid: 5120902363165753384
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753385
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753386
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753387
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753388
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753389
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753390
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753391
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753392
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753393
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753394
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753395
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753396
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753397
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753398
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753399
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753400
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753401
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753402
-      type: {class: TestAbility, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5120902363165753403
-      type: {class: TestTarget, ns: , asm: Assembly-CSharp}
-      data: 
+    - rid: 4106735522983968819
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968820
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 1
+    - rid: 4106735522983968821
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968822
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 2
+    - rid: 4106735522983968823
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968824
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 3
+    - rid: 4106735522983968825
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968826
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 4
+    - rid: 4106735522983968827
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968828
+      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 5
+    - rid: 4106735522983968829
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968830
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 6
+    - rid: 4106735522983968831
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968832
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 7
+    - rid: 4106735522983968833
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968834
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 8
+    - rid: 4106735522983968835
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968836
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 9
+    - rid: 4106735522983968837
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: 
+    - rid: 4106735522983968838
+      type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 10

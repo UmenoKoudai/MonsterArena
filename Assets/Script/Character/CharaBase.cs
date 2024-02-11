@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,9 +24,33 @@ public class CharaBase : MonoBehaviour
     private float _interval;
     public float Interval => _interval;
 
+    [Tooltip("キャラのHP表示")]
     [SerializeField]
     private Slider _hpBar;
     public Slider HpBar { get => _hpBar; set => _hpBar = value; }
+
+
+    [Tooltip("キャラのステータス")]
+    [SerializeField]
+    private int _hp;
+    public int Hp
+    {
+        get => _hp;
+        set
+        {
+            _hpBar.value = value;
+            _hp = value;
+            if (_hp > _defaultHp) Hp = _defaultHp;
+        }
+    }
+
+    [SerializeField]
+    private int _attack;
+    public int Attack { get => _attack; set => _attack = value; }
+
+    [SerializeField]
+    private int _defense;
+    public int Defense { get => _defense; set => _defense = value; }
 
     private Rigidbody _rb;
     public Rigidbody Rb
@@ -35,5 +60,28 @@ public class CharaBase : MonoBehaviour
         {
             _rb = value;
         }
+    }
+
+    private int _defaultHp;
+    public int DefaultHp { get => _defaultHp; set => _defaultHp = value; }
+
+    public virtual void Damage(int damage)
+    {
+        Debug.LogError("Damage関数をオーバーライドしていません");
+    }
+
+    public virtual void AttackBuff(int value)
+    {
+        Debug.LogError("AttackBuff関数をオーバーライドしていません");
+    }
+
+    public virtual void DefenseBuff(int value)
+    {
+        Debug.LogError("DefenseBuff関数をオーバーライドしていません");
+    }
+
+    public virtual void Recovery(int value)
+    {
+        Debug.LogError("Recovery関数をオーバーライドしていません");
     }
 }

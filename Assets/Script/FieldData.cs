@@ -24,6 +24,8 @@ public class FieldData : MonoBehaviour
     public Enemy Enemy { get => _enemy; set => _enemy = value; }
     private CharaBase _target;
     public CharaBase Target { get => _target; set => _target = value; }
+    private CharaBase _attacker;
+    public CharaBase Attacker { get => _attacker; set => _attacker = value; }
     private Queue<Card> _selectCard = new Queue<Card>();
     public Queue<Card> SelectCard {  get => _selectCard; set => _selectCard = value; }
     private int _priority = 0;

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,11 +34,15 @@ public class Card : MonoBehaviour
         }
     }
 
-    private IAbility _ability;
-    public IAbility Ability { get => _ability; set => _ability = value; }
+    private List<IAbility> _ability;
+    public List<IAbility> Ability { get => _ability; set => _ability = value; }
 
     public void UseAbility()
     {
-        Ability.Use(FieldData.Instance);
+        var data = FieldData.Instance;
+        foreach(var ability in Ability)
+        {
+            ability.Use(data);
+        }
     }
 }
