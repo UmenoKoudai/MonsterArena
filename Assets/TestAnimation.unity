@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485832465}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -673,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0027491865
+      value: 0.0027491867
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.y
@@ -681,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0046093795
+      value: 0.00460938
       objectReference: {fileID: 0}
     - target: {fileID: 400024, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1425,11 +1425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.024370981
+      value: 0.024370983
       objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008131704
+      value: -0.008131705
       objectReference: {fileID: 0}
     - target: {fileID: 400092, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1517,11 +1517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400098, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.014208469
+      value: -0.01420847
       objectReference: {fileID: 0}
     - target: {fileID: 400098, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.017708752
+      value: -0.017708754
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1947,6 +1947,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.006349992
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 13700006, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -2019,6 +2023,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.0553375
       objectReference: {fileID: 0}
+    - target: {fileID: 13700020, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 100130, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
@@ -2031,26 +2039,6 @@ PrefabInstance:
 --- !u!1 &2123871373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 2123871372}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &2123871374 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700020, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 2123871372}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &2123871375 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700006, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 2123871372}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &2123871376 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700008, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 2123871372}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &2123871377 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
   m_PrefabInstance: {fileID: 2123871372}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2123871378
@@ -2234,30 +2222,18 @@ MonoBehaviour:
   showBones: 00000000030000000400000005000000060000000700000008000000090000000a0000000c0000000d0000000e0000000f00000010000000110000002e0000002f00000056000000570000005800000059000000
   foldoutBones: 960000009400000092000000910000008f0000008d0000008c0000008a0000008800000087000000850000008300000082000000800000007e0000007c0000007b0000007800000077000000760000007400000072000000700000006e0000006c0000006b0000006a000000680000006700000066000000640000006300000062000000600000005f0000005e0000005c0000005b0000005a000000590000005800000057000000560000005300000052000000500000004f0000004e0000004d0000004c0000004b000000490000004800000046000000440000004300000041000000400000003f0000003e0000003d0000003c0000003a0000003900000037000000320000002f0000002e0000002c0000002a0000002800000026000000240000002300000022000000200000001f0000001e0000001c0000001b0000001a00000018000000170000001600000014000000130000001200000011000000100000000f0000000e0000000d0000000c0000000b000000090000000800000007000000050000000400000003000000020000000100000000000000
   mirrorBones: ffffffffffffffffffffffff0700000008000000090000000a00000003000000040000000500000006000000ffffffffffffffffffffffff560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000ffffffffffffffffffffffffffffffffffffffffffffffff3500000034000000ffffffff460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f00000050000000510000005200000053000000540000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000ffffffff0e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d000000ffffffff7b0000007c0000007d000000ffffffff77000000780000007900000080000000810000007e0000007f0000008c0000008d0000008e0000008f00000090000000910000009200000093000000940000009500000082000000830000008400000085000000860000008700000088000000890000008a0000008b000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  mirrorBlendShape:
-  - renderer: {fileID: 2123871377}
-    names: []
-    mirrorNames: []
-  - renderer: {fileID: 2123871376}
-    names: []
-    mirrorNames: []
-  - renderer: {fileID: 2123871375}
-    names: []
-    mirrorNames: []
-  - renderer: {fileID: 2123871374}
-    names: []
-    mirrorNames: []
+  mirrorBlendShape: []
   animatorIkData:
   - enable: 1
     _fixed: 0
     autoRotation: 0
     spaceType: 0
     parent: {fileID: 0}
-    position: {x: -0.20909882, y: 1.2994134, z: -6.135685}
+    position: {x: -0.20980409, y: 1.2962756, z: -6.1780586}
     rotation: {x: 0, y: 0, z: 0, w: 1}
     headWeight: 1
     eyesWeight: 0
-    swivelRotation: 0
+    swivelRotation: -11.656738
     swivelPosition: {x: 0, y: 0, z: 0}
     parentPath: 
   - enable: 0
@@ -2289,8 +2265,8 @@ MonoBehaviour:
     autoRotation: 0
     spaceType: 0
     parent: {fileID: 0}
-    position: {x: -0.28509888, y: 0.07761615, z: -7.130066}
-    rotation: {x: -0.008237109, y: 0.048562672, z: -0.025275273, w: 0.9984663}
+    position: {x: -0.43102822, y: 0.110898264, z: -7.133597}
+    rotation: {x: -0.0015548443, y: -0.061000008, z: -0.0017099637, w: 0.9981351}
     headWeight: 1
     eyesWeight: 0
     swivelRotation: 0
@@ -2301,8 +2277,8 @@ MonoBehaviour:
     autoRotation: 0
     spaceType: 0
     parent: {fileID: 0}
-    position: {x: -0.13309985, y: 0.07761518, z: -7.1300893}
-    rotation: {x: -0.008237072, y: -0.048561357, z: 0.025275454, w: 0.9984664}
+    position: {x: 0.01264942, y: 0.11146948, z: -7.1332655}
+    rotation: {x: -0.030681191, y: 0.056789014, z: 0.0060021295, w: 0.9978966}
     headWeight: 1
     eyesWeight: 0
     swivelRotation: 0

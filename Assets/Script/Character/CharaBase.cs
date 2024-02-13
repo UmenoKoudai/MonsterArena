@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +37,7 @@ public class CharaBase : MonoBehaviour
         get => _hp;
         set
         {
-            _hpBar.value = value;
+            _hpBar.value = _defaultHp - value;
             _hp = value;
             if (_hp > _defaultHp) Hp = _defaultHp;
         }

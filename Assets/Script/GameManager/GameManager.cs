@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
                 FieldData.Instance.Target = FieldData.Instance.Enemy;
                 FieldData.Instance.Attacker = FieldData.Instance.Player;
             }
-            else
+            else if (_turn == NowTurn.Enemy)
             {
                 FieldData.Instance.Target = FieldData.Instance.Player;
                 FieldData.Instance.Attacker = FieldData.Instance.Enemy;
@@ -54,12 +53,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Enemy);
+        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Player);
         if (_turn == NowTurn.Player)
         {
             _player.ManualUpdate();
         }
-        else
+        else if(_turn == NowTurn.Enemy)
         {
             _enemy.ManualUpdate();
         }
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             _player.ManualFixedUpdate();
         }
-        else
+        else if (_turn == NowTurn.Enemy)
         {
             _enemy.ManualFixedUpdate();
         }

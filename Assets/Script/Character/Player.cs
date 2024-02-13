@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : CharaBase
@@ -9,7 +10,7 @@ public class Player : CharaBase
         BasePos = transform.position;
         Rb = GetComponent<Rigidbody>();
         HpBar.maxValue = Hp;
-        HpBar.value = Hp;
+        HpBar.value = DefaultHp - Hp;
     }
 
     public override void Damage(int damage)

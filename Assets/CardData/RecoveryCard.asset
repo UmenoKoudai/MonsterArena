@@ -60,7 +60,7 @@ MonoBehaviour:
     - rid: 4106735522983968839
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968840
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -68,7 +68,7 @@ MonoBehaviour:
     - rid: 4106735522983968841
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968842
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -76,7 +76,7 @@ MonoBehaviour:
     - rid: 4106735522983968843
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968844
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -84,7 +84,7 @@ MonoBehaviour:
     - rid: 4106735522983968845
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968846
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -92,7 +92,7 @@ MonoBehaviour:
     - rid: 4106735522983968847
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968848
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -100,7 +100,7 @@ MonoBehaviour:
     - rid: 4106735522983968849
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968850
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -108,7 +108,7 @@ MonoBehaviour:
     - rid: 4106735522983968851
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968852
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -116,7 +116,7 @@ MonoBehaviour:
     - rid: 4106735522983968854
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968855
       type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -124,7 +124,7 @@ MonoBehaviour:
     - rid: 4106735522983968856
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968857
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -132,7 +132,7 @@ MonoBehaviour:
     - rid: 4106735522983968858
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: 
+        _animName: Action
     - rid: 4106735522983968859
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:

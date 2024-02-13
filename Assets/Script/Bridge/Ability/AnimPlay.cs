@@ -9,6 +9,6 @@ public class AnimPlay : IAbility
 
     public void Use(FieldData data)
     {
-        data.Target.Anim.Play(_animName);
+        data.Attacker.Anim.Play(_animName);
     }
 }

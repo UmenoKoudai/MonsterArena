@@ -1,3 +1,6 @@
+
+using UnityEngine;
+
 public class PlayerTurn : TurnBase
 {
     private Phase _phase;
@@ -7,6 +10,7 @@ public class PlayerTurn : TurnBase
         set
         {
             if (_phase == value) return;
+            Debug.Log(value);
             _phase = value;
             switch(_phase)
             {

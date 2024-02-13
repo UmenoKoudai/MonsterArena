@@ -11,39 +11,6 @@ public class TurnBase : MonoBehaviour
     private GameObject SelectPanel;
 
     [SerializeField]
-    private int _hp;
-    public int HP
-    {
-        get => _hp;
-        set
-        {
-            _hp = value;
-        }
-    }
-
-    [SerializeField]
-    private int _defense;
-    public int Defense
-    {
-        get => _defense;
-        set
-        {
-            _defense = value;
-        }
-    }
-
-    [SerializeField]
-    private int _attack;
-    public int Attack
-    {
-        get => _attack;
-        set
-        {
-            _attack = value;
-        }
-    }
-
-    [SerializeField]
     private SelectCard _selectCard;
     public SelectCard SelectCardScript => _selectCard;
 
@@ -62,6 +29,10 @@ public class TurnBase : MonoBehaviour
     [SerializeField]
     private GameObject[] _selectObject;
     public GameObject[] SelectObject => _selectObject;
+
+    [SerializeField]
+    private int _angle;
+    public int Angle => _angle;
 
     public enum Phase
     {

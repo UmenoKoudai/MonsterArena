@@ -1605,9 +1605,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 5717370820427130342}
   SelectPanel: {fileID: 998759714}
-  _hp: 100
-  _defense: 0
-  _attack: 1
   _selectCard: {fileID: 998759719}
   _selectTimer: {fileID: 1676476517}
   _standByField: {fileID: 1051399474}
@@ -1618,6 +1615,7 @@ MonoBehaviour:
   - {fileID: 346934383}
   - {fileID: 1711718385}
   - {fileID: 1676476515}
+  _angle: 0
 --- !u!4 &415051679
 Transform:
   m_ObjectHideFlags: 0
@@ -2353,7 +2351,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1003769640}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -3426,9 +3424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 1744085335}
   SelectPanel: {fileID: 998759714}
-  _hp: 100
-  _defense: 0
-  _attack: 1
   _selectCard: {fileID: 998759719}
   _selectTimer: {fileID: 1676476517}
   _standByField: {fileID: 1051399474}
@@ -3439,6 +3434,7 @@ MonoBehaviour:
   - {fileID: 346934383}
   - {fileID: 1711718385}
   - {fileID: 1676476515}
+  _angle: 0
 --- !u!4 &1035021364
 Transform:
   m_ObjectHideFlags: 0
@@ -5608,9 +5604,9 @@ MonoBehaviour:
   _movePos: {fileID: 805474782}
   _interval: 0.5
   _hpBar: {fileID: 773087482}
-  _hp: 0
-  _attack: 0
-  _defense: 0
+  _hp: 100
+  _attack: 1
+  _defense: 1
 --- !u!1 &1758095287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100036, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
@@ -7974,9 +7970,9 @@ MonoBehaviour:
   _movePos: {fileID: 1277664525}
   _interval: 0.5
   _hpBar: {fileID: 379450173}
-  _hp: 0
-  _attack: 0
-  _defense: 0
+  _hp: 100
+  _attack: 1
+  _defense: 1
 --- !u!54 &5717370820427130343
 Rigidbody:
   m_ObjectHideFlags: 0

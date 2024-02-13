@@ -8,6 +8,8 @@ public class Enemy : CharaBase
         FieldData.Instance.Enemy = this;
         BasePos = transform.position;
         Rb = GetComponent<Rigidbody>();
+        HpBar.maxValue = Hp;
+        HpBar.value = DefaultHp - Hp;
     }
 
     public override void Damage(int damage)
