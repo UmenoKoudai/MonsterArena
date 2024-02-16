@@ -9,7 +9,8 @@ public class CharaBase : MonoBehaviour
 
     [Header("プレイヤーの動きに関する数値")]
     [SerializeField]
-    private float _speed = 5f;
+    [Min(20)]
+    private float _speed = 20f;
     public float Speed => _speed;
 
     [SerializeField]
@@ -22,6 +23,11 @@ public class CharaBase : MonoBehaviour
     [SerializeField]
     private float _interval;
     public float Interval => _interval;
+
+    [SerializeField]
+    [Min(45)]
+    private int _angle = 45;
+    public int Angle => _angle;
 
     [Tooltip("キャラのHP表示")]
     [SerializeField]

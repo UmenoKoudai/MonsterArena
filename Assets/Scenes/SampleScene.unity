@@ -1615,7 +1615,6 @@ MonoBehaviour:
   - {fileID: 346934383}
   - {fileID: 1711718385}
   - {fileID: 1676476515}
-  _angle: 0
 --- !u!4 &415051679
 Transform:
   m_ObjectHideFlags: 0
@@ -3434,7 +3433,6 @@ MonoBehaviour:
   - {fileID: 346934383}
   - {fileID: 1711718385}
   - {fileID: 1676476515}
-  _angle: 0
 --- !u!4 &1035021364
 Transform:
   m_ObjectHideFlags: 0
@@ -5603,6 +5601,7 @@ MonoBehaviour:
   _speed: 20
   _movePos: {fileID: 805474782}
   _interval: 0.5
+  _angle: 45
   _hpBar: {fileID: 773087482}
   _hp: 100
   _attack: 1
@@ -7966,9 +7965,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animl: {fileID: 5717370820427130341}
-  _speed: 5
+  _speed: 25
   _movePos: {fileID: 1277664525}
   _interval: 0.5
+  _angle: 45
   _hpBar: {fileID: 379450173}
   _hp: 100
   _attack: 1

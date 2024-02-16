@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: DefenseBuffCard
   m_EditorClassIdentifier: 
   _cardIcon: {fileID: 1704520501, guid: 9843fe9167e87fd409880f4cc8b2a827, type: 3}
+  _condition:
+    rid: 4106735675326332934
+  _moveAbility:
+    rid: 4106735675326332935
   data:
   - _priority: 1
     _ability:
@@ -137,3 +141,9 @@ MonoBehaviour:
       type: {class: DefenseBuffAbility, ns: , asm: Assembly-CSharp}
       data:
         _value: 10
+    - rid: 4106735675326332934
+      type: {class: BasePosition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4106735675326332935
+      type: {class: BasePosAbility, ns: , asm: Assembly-CSharp}
+      data: 

@@ -37,10 +37,21 @@ public class Card : MonoBehaviour
     private List<IAbility> _ability;
     public List<IAbility> Ability { get => _ability; set => _ability = value; }
 
-    public void UseAbility()
+    private ICondition _condition;
+    public ICondition Condition { get => _condition; set => _condition = value; }
+
+    private IMoveAbility _moveAbility;
+    public IMoveAbility MoveAbility { get => _moveAbility; set => _moveAbility = value; }
+
+    public async void UseAbility()
     {
         var data = FieldData.Instance;
-        foreach(var ability in Ability)
+        if (_condition.Check(data))
+        {
+            Debug.Log("êŠˆÚ“®");
+            await _moveAbility.Use(data);
+        }
+        foreach (var ability in Ability)
         {
             ability.Use(data);
         }

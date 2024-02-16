@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: RecoveryCard
   m_EditorClassIdentifier: 
   _cardIcon: {fileID: 826280234, guid: b2713bbf286ea3b4d8cf4478d348ee16, type: 3}
+  _condition:
+    rid: 4106735675326332936
+  _moveAbility:
+    rid: 4106735675326332937
   data:
   - _priority: 1
     _ability:
@@ -137,3 +141,9 @@ MonoBehaviour:
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
         _value: 50
+    - rid: 4106735675326332936
+      type: {class: BasePosition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4106735675326332937
+      type: {class: BasePosAbility, ns: , asm: Assembly-CSharp}
+      data: 

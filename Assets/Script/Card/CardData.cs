@@ -9,6 +9,18 @@ public class CardData : ScriptableObject
     private Sprite _cardIcon;
     public Sprite CardIcon => _cardIcon;
 
+    [SerializeField, Tooltip("移動が必要かのチェック")]
+    [SerializeReference]
+    [SubclassSelector]
+    private ICondition _condition;
+    public ICondition Condition => _condition;
+
+    [SerializeField, Tooltip("キャラを移動させる")]
+    [SerializeReference]
+    [SubclassSelector]
+    private IMoveAbility _moveAbility;
+    public IMoveAbility MoveAbility => _moveAbility;
+
     [SerializeField]
     private List<Data> data = new List<Data>();
     public List<Data> Data => data;

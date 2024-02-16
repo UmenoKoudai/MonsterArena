@@ -30,10 +30,6 @@ public class TurnBase : MonoBehaviour
     private GameObject[] _selectObject;
     public GameObject[] SelectObject => _selectObject;
 
-    [SerializeField]
-    private int _angle;
-    public int Angle => _angle;
-
     public enum Phase
     {
         Stand,

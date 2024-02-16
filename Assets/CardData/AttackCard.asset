@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: AttackCard
   m_EditorClassIdentifier: 
   _cardIcon: {fileID: 652736346, guid: 9843fe9167e87fd409880f4cc8b2a827, type: 3}
+  _condition:
+    rid: 4106735675326332932
+  _moveAbility:
+    rid: 4106735675326332933
   data:
   - _priority: 1
     _ability:
@@ -137,3 +141,9 @@ MonoBehaviour:
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
         _attack: 9
+    - rid: 4106735675326332932
+      type: {class: AttackPosition, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4106735675326332933
+      type: {class: AttackPosAbility, ns: , asm: Assembly-CSharp}
+      data: 

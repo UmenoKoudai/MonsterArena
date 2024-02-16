@@ -169,6 +169,8 @@ public class SelectCard : MonoBehaviour
         card.Ability = selectDeck.Data[cardIndex].Ability;
         card.Priority = selectDeck.Data[cardIndex].Priority;
         card.CardIcon = selectDeck.CardIcon;
+        card.Condition = selectDeck.Condition;
+        card.MoveAbility = selectDeck.MoveAbility;
     }
 
     void SelectCardLog()
