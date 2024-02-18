@@ -1,41 +1,46 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TurnBase : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("動かすモデル(プレイヤーかエネミー)")]
     private CharaBase _character;
     public CharaBase Character => _character;
 
-    [SerializeField]
+    [SerializeField, Tooltip("セレクトフェーズで選んだカードを置いておく場所")]
     private GameObject SelectPanel;
 
-    [SerializeField]
+    [SerializeField, Tooltip("セレクトフェーズの機能")]
     private SelectCard _selectCard;
     public SelectCard SelectCardScript => _selectCard;
 
-    [SerializeField]
+    [SerializeField, Tooltip("セレクトフェーズの時間")]
     private SelectTimer _selectTimer;
     public SelectTimer SelectTimer => _selectTimer;
 
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃予定のカードをおいている場所")]
     private Image _standByField;
     public Image StandByField => _standByField;
 
-    [SerializeField]
+    [SerializeField, Tooltip("今攻撃しているカードを置く場所")]
     private Image _attackField;
     public Image AttackField => _attackField;
 
-    [SerializeField]
+    [SerializeField, Tooltip("セレクト画面のイメージ")]
     private GameObject[] _selectObject;
     public GameObject[] SelectObject => _selectObject;
+
+    private List<IAbility> _specialAbility = new List<IAbility>();
+    public List<IAbility> SpecialAbility => _specialAbility;
 
     public enum Phase
     {
         Stand,
         Select,
-        Move,
+        AttackStart,
         Attack,
+        AttackEnd,
         EntTurn,
     }
 

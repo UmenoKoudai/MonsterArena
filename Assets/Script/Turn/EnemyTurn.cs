@@ -16,11 +16,14 @@ public class EnemyTurn : TurnBase
                 case Phase.Select:
                     _select.Enter();
                     break;
-                case Phase.Move:
-                    _move.Enter();
+                case Phase.AttackStart:
+                    _attackStart.Enter();
                     break;
                 case Phase.Attack:
                     _attack.Enter();
+                    break;
+                case Phase.AttackEnd:
+                    _attackEnd.Enter();
                     break;
                 case Phase.EntTurn:
                     _endTurn.Enter();
@@ -31,18 +34,19 @@ public class EnemyTurn : TurnBase
 
     private Stand _stand;
     private Select _select;
-    private Move _move;
+    private AttackStart _attackStart;
     private Attack _attack;
+    private AttackEnd _attackEnd;
     private EndTurn _endTurn;
 
 
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
-        //FieldData.Instance.EnemyTurn = this;
         _stand = new Stand(this);
         _select = new Select(this, SelectCard.Turn.Enemy);
-        _move = new Move(this);
+        _attackStart = new AttackStart(this);
         _attack = new Attack(this);
+        _attackEnd = new AttackEnd(this);
         _endTurn = new EndTurn(gameManager, changeTurn, this);
     }
 
@@ -56,11 +60,14 @@ public class EnemyTurn : TurnBase
             case Phase.Select:
                 _select.Update();
                 break;
-            case Phase.Move:
-                _move.Update();
+            case Phase.AttackStart:
+                _attackStart.Update();
                 break;
             case Phase.Attack:
                 _attack.Update();
+                break;
+            case Phase.AttackEnd:
+                _attackEnd.Update();
                 break;
             case Phase.EntTurn:
                 _endTurn.Update();
@@ -78,11 +85,14 @@ public class EnemyTurn : TurnBase
             case Phase.Select:
                 _select.FixedUpdate();
                 break;
-            case Phase.Move:
-                _move.FixedUpdate();
+            case Phase.AttackStart:
+                _attackStart.FixedUpdate();
                 break;
             case Phase.Attack:
                 _attack.FixedUpdate();
+                break;
+            case Phase.AttackEnd:
+                _attackEnd.FixedUpdate();
                 break;
             case Phase.EntTurn:
                 _endTurn.FixedUpdate();

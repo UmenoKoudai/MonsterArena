@@ -22,24 +22,23 @@ public class Attack : IStateMachine
     {
         _selectCard = FieldData.Instance.SelectCard;
         int selectCount = _selectCard.Count;
-        _standByField.gameObject.SetActive(true);
-        _attackField.gameObject.SetActive(true);
         for (int i = 0; i < selectCount; i++)
         {
             var card = _selectCard.Dequeue();
             _useCard.Add(card);
             card.transform.SetParent(_standByField.transform);
+            if (card.SpecialAbility is null) continue;
+            _turnBase.SpecialAbility.Add(card.SpecialAbility);
         }
         await CardUse();
         Exit();
-        _turnBase.StateChange(TurnBase.Phase.EntTurn);
     }
 
     async UniTask CardUse()
     {
         foreach(var card in _useCard)
         {
-            card.UseAbility();
+            await card.UseAbility();
             card.transform.SetParent(_attackField.transform);
             await UniTask.Delay(TimeSpan.FromSeconds(3));
             FieldData.Instance.DestroyObject(card.gameObject);
@@ -50,8 +49,7 @@ public class Attack : IStateMachine
 
     public void Exit()
     {
-        _standByField.gameObject.SetActive(false);
-        _attackField.gameObject.SetActive(false);
+        _turnBase.StateChange(TurnBase.Phase.AttackEnd);
     }
 
     public void FixedUpdate()

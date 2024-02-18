@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869cf2b325b7fd04995b1da0b380d028, type: 3}
+  m_Name: Attack3Card
+  m_EditorClassIdentifier: 
+  data:
+  - _priority: 1
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968799
+    - rid: 4106735522983968800
+    _specialAbility:
+      rid: -2
+  - _priority: 2
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968801
+    - rid: 4106735522983968802
+    _specialAbility:
+      rid: -2
+  - _priority: 3
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968805
+    - rid: 4106735522983968806
+    _specialAbility:
+      rid: -2
+  - _priority: 4
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968807
+    - rid: 4106735522983968808
+    _specialAbility:
+      rid: -2
+  - _priority: 5
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968809
+    - rid: 4106735522983968810
+    _specialAbility:
+      rid: -2
+  - _priority: 6
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968811
+    - rid: 4106735522983968812
+    _specialAbility:
+      rid: 4106735722898128896
+  - _priority: 7
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968813
+    - rid: 4106735522983968814
+    _specialAbility:
+      rid: -2
+  - _priority: 8
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968815
+    - rid: 4106735522983968816
+    _specialAbility:
+      rid: 4106735722898128899
+  - _priority: 9
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968817
+    - rid: 4106735522983968818
+    _specialAbility:
+      rid: -2
+  - _priority: 10
+    _abilityCardPrefab: {fileID: 0}
+    _ability:
+    - rid: 4106735522983968803
+    - rid: 4106735522983968804
+    _specialAbility:
+      rid: 4106735722898128898
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4106735522983968799
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968800
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 1
+    - rid: 4106735522983968801
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968802
+      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 2
+    - rid: 4106735522983968803
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968804
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 10
+    - rid: 4106735522983968805
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968806
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 3
+    - rid: 4106735522983968807
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968808
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 4
+    - rid: 4106735522983968809
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968810
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 5
+    - rid: 4106735522983968811
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968812
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 6
+    - rid: 4106735522983968813
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968814
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 7
+    - rid: 4106735522983968815
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968816
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 8
+    - rid: 4106735522983968817
+      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
+      data:
+        _animName: Attack3
+    - rid: 4106735522983968818
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 9
+    - rid: 4106735722898128896
+      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 3
+    - rid: 4106735722898128898
+      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 10
+    - rid: 4106735722898128899
+      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _value: 5

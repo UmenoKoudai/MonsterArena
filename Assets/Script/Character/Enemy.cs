@@ -14,30 +14,40 @@ public class Enemy : CharaBase
 
     public override void Damage(int damage)
     {
-        Hp -= (Defense - damage);
-        DebugPrint("HP", Hp);
+        Hp -= Mathf.Abs(damage - Defense);
+        if (Mathf.Abs(damage - Defense) < 10)
+        {
+            DamageParticle[0].Play();
+        }
+        else if (Mathf.Abs(damage - Defense) < 20)
+        {
+            DamageParticle[1].Play();
+        }
+        else if (Mathf.Abs(damage - Defense) < 30)
+        {
+            DamageParticle[2].Play();
+        }
+        else
+        {
+            DamageParticle[3].Play();
+        }
     }
 
     public override void AttackBuff(int value)
     {
         Attack += value;
-        DebugPrint("Attack", Attack);
+        AttackBuffParticle.Play();
     }
 
     public override void DefenseBuff(int value)
     {
         Defense += value;
-        DebugPrint("Defense", Defense);
+        DefenseBuffParticle.Play();
     }
 
     public override void Recovery(int value)
     {
         Hp += value;
-        DebugPrint("HP", Hp);
-    }
-
-    private void DebugPrint(string name, int value)
-    {
-        Debug.Log($"Now{name}{value}");
+        RecoveryParticle.Play();
     }
 }

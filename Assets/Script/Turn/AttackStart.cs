@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class Move : IStateMachine
+public class AttackStart : IStateMachine
 {
     private TurnBase _turnBase;
     private Transform _movePos;
     private Vector3 _direction;
     private float _interval;
     private float _speed;
+    private float _distance;
 
-    public Move(TurnBase turnBase)
+    public AttackStart(TurnBase turnBase)
     {
         _turnBase = turnBase;
         _direction = (_turnBase.Character.MovePos.position - _turnBase.Character.transform.position).normalized;
@@ -24,16 +25,20 @@ public class Move : IStateMachine
 
     public void Exit()
     {
-        _turnBase.Character.Rb.velocity = Vector3.zero;
-        _turnBase.Character.Anim.SetBool("Run", false);
+        Debug.Log("à⁄ìÆèIóπ");
         _turnBase.StateChange(TurnBase.Phase.Attack);
     }
 
     public void FixedUpdate()
     {
-        float distance = Vector3.Distance(_turnBase.Character.transform.position, _movePos.position);
-        if (distance < _interval) Exit();
+        _distance = Vector3.Distance(_turnBase.Character.transform.position, _movePos.position);
         _turnBase.Character.Rb.velocity = _direction * _speed;
+        if (_distance < 10)
+        {
+            _turnBase.Character.Rb.velocity = Vector3.zero;
+            _turnBase.Character.Anim.SetBool("Run", false);
+            Exit();
+        }
     }
 
     public void Update()

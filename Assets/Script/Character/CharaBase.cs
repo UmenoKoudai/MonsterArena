@@ -57,6 +57,22 @@ public class CharaBase : MonoBehaviour
     private int _defense;
     public int Defense { get => _defense; set => _defense = value; }
 
+    [SerializeField]
+    private ParticleSystem _attackBuffParticle;
+    public ParticleSystem AttackBuffParticle => _attackBuffParticle;
+
+    [SerializeField]
+    private ParticleSystem _defenseBuffParticle;
+    public ParticleSystem DefenseBuffParticle => _defenseBuffParticle;
+
+    [SerializeField]
+    private ParticleSystem _recoveryParticle;
+    public ParticleSystem RecoveryParticle => _recoveryParticle;
+
+    [SerializeField]
+    private ParticleSystem[] _damageParticle;
+    public ParticleSystem[] DamageParticle => _damageParticle;
+
     private Rigidbody _rb;
     public Rigidbody Rb
     {
@@ -69,6 +85,7 @@ public class CharaBase : MonoBehaviour
 
     private int _defaultHp;
     public int DefaultHp { get => _defaultHp; set => _defaultHp = value; }
+
 
     public virtual void Damage(int damage)
     {

@@ -18,7 +18,7 @@ public class Select : IStateMachine
         _turnBase.SelectCardScript.Init(_turn);
         await _turnBase.SelectTimer.Init();
         Exit();
-        _turnBase.StateChange(TurnBase.Phase.Attack);
+        _turnBase.StateChange(TurnBase.Phase.AttackStart);
     }
 
     public async void Exit()
