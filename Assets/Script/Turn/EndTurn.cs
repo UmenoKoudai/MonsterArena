@@ -1,3 +1,6 @@
+using Cysharp.Threading.Tasks;
+using System;
+
 public class EndTurn : IStateMachine
 {
     private GameManager _gameManager;
@@ -15,7 +18,8 @@ public class EndTurn : IStateMachine
 
     public async void Enter()
     {
-        await BackStep.BasePositionMove(_character.BasePos, _character.transform, _character.Angle, _character);
+        _turnBase.PhaseAnimator.Play("End");
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
         _gameManager.TurnChange(_changeTurn);
         _turnBase.StateChange(TurnBase.Phase.Stand);
     }

@@ -9,7 +9,6 @@ public class AttackAbility : IAbility
 
     public void Use(FieldData data)
     {
-        Debug.Log(data.Target);
         data.Target.Damage(data.Attacker.Attack * _attack);
     }
 }

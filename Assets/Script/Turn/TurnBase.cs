@@ -1,5 +1,7 @@
+using Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class TurnBase : MonoBehaviour
@@ -30,6 +32,22 @@ public class TurnBase : MonoBehaviour
     [SerializeField, Tooltip("セレクト画面のイメージ")]
     private GameObject[] _selectObject;
     public GameObject[] SelectObject => _selectObject;
+
+    [SerializeField, Tooltip("今のターンを表示させるアニメーション")]
+    private Animator _phaseAnimator;
+    public Animator PhaseAnimator => _phaseAnimator;
+
+    [SerializeField, Tooltip("カメラのタイムライン")]
+    private PlayableDirector _cameraTimeLine;
+    public PlayableDirector CameraTimeLine => _cameraTimeLine;
+
+    [SerializeField, Tooltip("キャラクターのカメラ")]
+    private CinemachineVirtualCamera _characterCamera;
+    public CinemachineVirtualCamera CharacterCamera => _characterCamera;
+
+    [SerializeField, Tooltip("全体カメラ")]
+    private CinemachineVirtualCamera _mainCamera;
+    public CinemachineVirtualCamera MainCamera => _mainCamera;
 
     private List<IAbility> _specialAbility = new List<IAbility>();
     public List<IAbility> SpecialAbility => _specialAbility;

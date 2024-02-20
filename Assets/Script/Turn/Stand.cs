@@ -1,6 +1,3 @@
-using Cysharp.Threading.Tasks;
-using System;
-
 public class Stand : IStateMachine
 {
     TurnBase _turnBase;
@@ -21,9 +18,8 @@ public class Stand : IStateMachine
     {
     }
 
-    public async void Update()
+    public void Update()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(2));
         _turnBase.StateChange(TurnBase.Phase.Select);
     }
 }

@@ -1,3 +1,6 @@
+using Cysharp.Threading.Tasks;
+using System;
+
 public class Select : IStateMachine
 {
     private TurnBase _turnBase;
@@ -11,6 +14,11 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
+        _turnBase.CharacterCamera.Priority = 10;
+        _turnBase.MainCamera.Priority = 0;
+        _turnBase.CameraTimeLine.Play();
+        _turnBase.PhaseAnimator.Play("Select");
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
         foreach (var obj in _turnBase.SelectObject)
         {
             obj.SetActive(true);

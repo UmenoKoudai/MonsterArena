@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 public class AttackStart : IStateMachine
@@ -8,6 +10,7 @@ public class AttackStart : IStateMachine
     private float _interval;
     private float _speed;
     private float _distance;
+    private bool _animeFinish = false;
 
     public AttackStart(TurnBase turnBase)
     {
@@ -18,19 +21,26 @@ public class AttackStart : IStateMachine
         _speed = _turnBase.Character.Speed;
     }
 
-    public void Enter()
+    public async void Enter()
     {
+        _turnBase.CharacterCamera.Priority = 0;
+        _turnBase.MainCamera.Priority = 10;
+        _turnBase.CameraTimeLine.Stop();
+        _turnBase.PhaseAnimator.Play("Attack");
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
+        _animeFinish = true;
         _turnBase.Character.Anim.SetBool("Run", true);
     }
 
     public void Exit()
     {
-        Debug.Log("à⁄ìÆèIóπ");
+        _animeFinish = false;
         _turnBase.StateChange(TurnBase.Phase.Attack);
     }
 
     public void FixedUpdate()
     {
+        if (!_animeFinish) return;
         _distance = Vector3.Distance(_turnBase.Character.transform.position, _movePos.position);
         _turnBase.Character.Rb.velocity = _direction * _speed;
         if (_distance < 10)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - _priority: 1
-    _abilityCardPrefab: {fileID: 0}
+    _abilityCardPrefab: {fileID: 7128137028619404769, guid: ddc06766b577dfa45b825e9cfdcfdf40, type: 3}
     _ability:
     - rid: 4106735522983968799
     - rid: 4106735522983968800
@@ -24,7 +24,7 @@ MonoBehaviour:
     _abilityCardPrefab: {fileID: 0}
     _ability:
     - rid: 4106735522983968801
-    - rid: 4106735522983968802
+    - rid: 4106735768155455489
     _specialAbility:
       rid: -2
   - _priority: 3
@@ -49,7 +49,7 @@ MonoBehaviour:
     _specialAbility:
       rid: -2
   - _priority: 6
-    _abilityCardPrefab: {fileID: 0}
+    _abilityCardPrefab: {fileID: 7128137028619404769, guid: ddc06766b577dfa45b825e9cfdcfdf40, type: 3}
     _ability:
     - rid: 4106735522983968811
     - rid: 4106735522983968812
@@ -63,7 +63,7 @@ MonoBehaviour:
     _specialAbility:
       rid: -2
   - _priority: 8
-    _abilityCardPrefab: {fileID: 0}
+    _abilityCardPrefab: {fileID: 7128137028619404769, guid: ddc06766b577dfa45b825e9cfdcfdf40, type: 3}
     _ability:
     - rid: 4106735522983968815
     - rid: 4106735522983968816
@@ -100,10 +100,6 @@ MonoBehaviour:
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
         _animName: Attack1
-    - rid: 4106735522983968802
-      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _value: 2
     - rid: 4106735522983968803
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
@@ -180,3 +176,7 @@ MonoBehaviour:
       type: {class: RecoveryAbility, ns: , asm: Assembly-CSharp}
       data:
         _value: 30
+    - rid: 4106735768155455489
+      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
+      data:
+        _attack: 2

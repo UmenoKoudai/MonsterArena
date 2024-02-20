@@ -51,9 +51,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        TurnChange(NowTurn.Player);
+    }
+
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")) TurnChange(NowTurn.Player);
         if (_turn == NowTurn.Player)
         {
             _player.ManualUpdate();
