@@ -14,10 +14,6 @@ public class FieldData : MonoBehaviour
         }
     }
 
-    //private PlayerTurn _playerTurn;
-    //public PlayerTurn PlayerTurn { get => _playerTurn; set => _playerTurn = value; }
-    //private EnemyTurn _enemyTurn;
-    //public EnemyTurn EnemyTurn { get => _enemyTurn; set => _enemyTurn = value; }
     private Player _player;
     public Player Player { get => _player; set => _player = value; }
     private Enemy _enemy;
