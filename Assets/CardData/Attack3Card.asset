@@ -48,41 +48,6 @@ MonoBehaviour:
     - rid: 4106735522983968810
     _specialAbility:
       rid: -2
-  - _priority: 6
-    _abilityCardPrefab: {fileID: 4686671292426059055, guid: f34ba47e16591a04288587af3a8206e8, type: 3}
-    _ability:
-    - rid: 4106735522983968811
-    - rid: 4106735522983968812
-    _specialAbility:
-      rid: 4106735722898128896
-  - _priority: 7
-    _abilityCardPrefab: {fileID: 0}
-    _ability:
-    - rid: 4106735522983968813
-    - rid: 4106735522983968814
-    _specialAbility:
-      rid: -2
-  - _priority: 8
-    _abilityCardPrefab: {fileID: 4686671292426059055, guid: f34ba47e16591a04288587af3a8206e8, type: 3}
-    _ability:
-    - rid: 4106735522983968815
-    - rid: 4106735522983968816
-    _specialAbility:
-      rid: 4106735722898128899
-  - _priority: 9
-    _abilityCardPrefab: {fileID: 0}
-    _ability:
-    - rid: 4106735522983968817
-    - rid: 4106735522983968818
-    _specialAbility:
-      rid: -2
-  - _priority: 10
-    _abilityCardPrefab: {fileID: 4686671292426059055, guid: f34ba47e16591a04288587af3a8206e8, type: 3}
-    _ability:
-    - rid: 4106735522983968803
-    - rid: 4106735522983968804
-    _specialAbility:
-      rid: 4106735722898128898
   references:
     version: 2
     RefIds:
@@ -91,7 +56,7 @@ MonoBehaviour:
     - rid: 4106735522983968799
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: Attack3
+        _animName: Player_Attack_1
     - rid: 4106735522983968800
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -99,19 +64,11 @@ MonoBehaviour:
     - rid: 4106735522983968801
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: Attack3
-    - rid: 4106735522983968803
-      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
-      data:
-        _animName: Attack3
-    - rid: 4106735522983968804
-      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _attack: 10
+        _animName: Player_Attack_2
     - rid: 4106735522983968805
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: Attack3
+        _animName: Player_Attack_3
     - rid: 4106735522983968806
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -119,7 +76,7 @@ MonoBehaviour:
     - rid: 4106735522983968807
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: Attack3
+        _animName: Player_Attack_4
     - rid: 4106735522983968808
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
@@ -127,55 +84,11 @@ MonoBehaviour:
     - rid: 4106735522983968809
       type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
       data:
-        _animName: Attack3
+        _animName: Player_Attack_5
     - rid: 4106735522983968810
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
         _attack: 5
-    - rid: 4106735522983968811
-      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
-      data:
-        _animName: Attack3
-    - rid: 4106735522983968812
-      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _attack: 6
-    - rid: 4106735522983968813
-      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
-      data:
-        _animName: Attack3
-    - rid: 4106735522983968814
-      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _attack: 7
-    - rid: 4106735522983968815
-      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
-      data:
-        _animName: Attack3
-    - rid: 4106735522983968816
-      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _attack: 8
-    - rid: 4106735522983968817
-      type: {class: AnimPlay, ns: , asm: Assembly-CSharp}
-      data:
-        _animName: Attack3
-    - rid: 4106735522983968818
-      type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _attack: 9
-    - rid: 4106735722898128896
-      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _value: 3
-    - rid: 4106735722898128898
-      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _value: 10
-    - rid: 4106735722898128899
-      type: {class: AttackBuffAbility, ns: , asm: Assembly-CSharp}
-      data:
-        _value: 5
     - rid: 4106735768155455491
       type: {class: AttackAbility, ns: , asm: Assembly-CSharp}
       data:
