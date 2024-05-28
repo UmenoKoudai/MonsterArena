@@ -37,17 +37,21 @@ public class TurnBase : MonoBehaviour
     private Animator _phaseAnimator;
     public Animator PhaseAnimator => _phaseAnimator;
 
-    [SerializeField, Tooltip("カメラのタイムライン")]
+    [SerializeField, Tooltip("Selectカメラのタイムライン")]
     private PlayableDirector _cameraTimeLine;
     public PlayableDirector CameraTimeLine => _cameraTimeLine;
+
+    [SerializeField, Tooltip("Attackカメラのタイムライン")]
+    private PlayableDirector _attackTimeline;
+    public PlayableDirector AttackTimeline => _attackTimeline;
 
     [SerializeField, Tooltip("キャラクターのカメラ")]
     private CinemachineVirtualCamera _characterCamera;
     public CinemachineVirtualCamera CharacterCamera => _characterCamera;
 
-    [SerializeField, Tooltip("全体カメラ")]
-    private CinemachineVirtualCamera _mainCamera;
-    public CinemachineVirtualCamera MainCamera => _mainCamera;
+    [SerializeField, Tooltip("アタックに移行するときのカメラ")]
+    private CinemachineVirtualCamera _attackCamera;
+    public CinemachineVirtualCamera AttackCamera => _attackCamera;
 
     private List<IAbility> _specialAbility = new List<IAbility>();
     public List<IAbility> SpecialAbility => _specialAbility;

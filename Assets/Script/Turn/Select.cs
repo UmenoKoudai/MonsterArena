@@ -14,8 +14,8 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
-        _turnBase.CharacterCamera.Priority = 10;
-        _turnBase.MainCamera.Priority = 0;
+        //_turnBase.CharacterCamera.Priority = 10;
+        //_turnBase.AttackCamera.Priority = 0;
         _turnBase.CameraTimeLine.Play();
         _turnBase.PhaseAnimator.Play("Select");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
