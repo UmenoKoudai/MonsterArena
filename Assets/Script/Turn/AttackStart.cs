@@ -23,8 +23,8 @@ public class AttackStart : IStateMachine
 
     public async void Enter()
     {
-        //_turnBase.CharacterCamera.Priority = 0;
-        //_turnBase.AttackCamera.Priority = 10;
+        _turnBase.CharacterCamera.Priority = 0;
+        _turnBase.AttackCamera.Priority = 10;
         _turnBase.AttackTimeline.Play();
         _turnBase.CameraTimeLine.Stop();
         _turnBase.PhaseAnimator.Play("Attack");
@@ -37,8 +37,8 @@ public class AttackStart : IStateMachine
 
     public void Exit()
     {
-        //_turnBase.CharacterCamera.Priority = 10;
-        //_turnBase.AttackCamera.Priority = 0;
+        _turnBase.CharacterCamera.Priority = 10;
+        _turnBase.AttackCamera.Priority = 0;
         _turnBase.AttackTimeline.Stop();
         _animeFinish = false;
         _turnBase.StateChange(TurnBase.Phase.Attack);

@@ -1,6 +1,6 @@
 public class PlayerTurn : TurnBase
 {
-    private Phase _phase;
+    private Phase _phase = Phase.EntTurn;
     public Phase NowPhase
     {
         get => _phase;
@@ -50,6 +50,7 @@ public class PlayerTurn : TurnBase
         _attack = new Attack(this);
         _attackEnd = new AttackEnd(this);
         _endTurn = new EndTurn(gameManager, changeTurn, this);
+        StateChange(Phase.Stand);
     }
 
     public void ManualUpdate()
