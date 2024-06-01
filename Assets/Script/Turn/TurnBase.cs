@@ -42,9 +42,14 @@ public class TurnBase : MonoBehaviour
     private PlayableDirector _cameraTimeLine;
     public PlayableDirector CameraTimeLine => _cameraTimeLine;
 
+    [SerializeField, Tooltip("AttackStartのタイムライン")]
+    private PlayableDirector _attackStartTimeLine;
+    public PlayableDirector AttackStartTimeline => _attackStartTimeLine;
+
     [SerializeField, Tooltip("Attackカメラのタイムライン")]
     private PlayableDirector _attackTimeline;
     public PlayableDirector AttackTimeline => _attackTimeline;
+
 
     private List<IAbility> _specialAbility = new List<IAbility>();
     public List<IAbility> SpecialAbility => _specialAbility;
@@ -56,7 +61,7 @@ public class TurnBase : MonoBehaviour
         AttackStart,
         Attack,
         AttackEnd,
-        EntTurn,
+        EndTurn,
     }
 
     public virtual void StateChange(Phase change)

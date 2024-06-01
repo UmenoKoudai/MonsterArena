@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// ‘Šè‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éŒø‰Ê
+/// </summary>
 [Serializable]
 public class AttackAbility : IAbility
 {

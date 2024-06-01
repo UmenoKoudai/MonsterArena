@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// カードの効果等の情報を格納するクラス
+/// </summary>
 public class Card : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField,Tooltip("カードに記載されている数字")]
     private Text _myText;
 
+    /// <summary>
+    /// カードの優先度
+    /// </summary>
     private int _priority;
     public int Priority
     {
@@ -19,9 +25,15 @@ public class Card : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 基本の攻撃アビリティ
+    /// </summary>
     private List<IAbility> _ability;
     public List<IAbility> Ability { get => _ability; set => _ability = value; }
 
+    /// <summary>
+    /// バフ、デバフ等の特殊な効果
+    /// </summary>
     private IAbility _specialAbility;
     public IAbility SpecialAbility { get => _specialAbility; set => _specialAbility = value; }
 

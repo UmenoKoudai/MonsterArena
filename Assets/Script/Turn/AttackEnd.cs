@@ -24,7 +24,7 @@ public class AttackEnd : IStateMachine
 
     public void Exit()
     {
-        _turnBase.StateChange(TurnBase.Phase.EntTurn);
+        _turnBase.StateChange(TurnBase.Phase.EndTurn);
     }
 
     public void FixedUpdate()

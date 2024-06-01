@@ -21,7 +21,6 @@ public class EndTurn : IStateMachine
         _turnBase.PhaseAnimator.Play("End");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         _gameManager.TurnChange(_changeTurn);
-        _turnBase.StateChange(TurnBase.Phase.Stand);
     }
 
     public void Exit()

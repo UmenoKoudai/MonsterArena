@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Ž©•ª‚Ì‚g‚o‚ð‰ñ•œ‚³‚¹‚éŒø‰Ê
+/// </summary>
 [SerializeField]
 public class RecoveryAbility : IAbility
 {

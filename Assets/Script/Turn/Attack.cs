@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+/// <summary>
+/// 選択したカードで攻撃するステート
+/// </summary>
 public class Attack : IStateMachine
 {
     private TurnBase _turnBase;
@@ -20,6 +23,7 @@ public class Attack : IStateMachine
 
     public async void Enter()
     {
+        _turnBase.AttackTimeline.Play();
         _selectCard = FieldData.Instance.SelectCard;
         int selectCount = _selectCard.Count;
         for (int i = 0; i < selectCount; i++)
@@ -34,6 +38,10 @@ public class Attack : IStateMachine
         Exit();
     }
 
+    /// <summary>
+    /// 選択したカードを使用する
+    /// </summary>
+    /// <returns></returns>
     async UniTask CardUse()
     {
         foreach(var card in _useCard)
@@ -41,9 +49,7 @@ public class Attack : IStateMachine
             card.transform.SetParent(_attackField.transform);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             await card.UseAbility();
-            //await UniTask.Delay(TimeSpan.FromSeconds(3));
             FieldData.Instance.DestroyObject(card.gameObject);
-            //await UniTask.Delay(TimeSpan.FromSeconds(1));
             await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
         _useCard.Clear();
@@ -51,6 +57,7 @@ public class Attack : IStateMachine
 
     public void Exit()
     {
+        _turnBase.AttackTimeline.Stop();
         _turnBase.StateChange(TurnBase.Phase.AttackEnd);
     }
 

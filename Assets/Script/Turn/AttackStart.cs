@@ -23,22 +23,21 @@ public class AttackStart : IStateMachine
 
     public async void Enter()
     {
-        _turnBase.CharacterCamera.Priority = 0;
-        _turnBase.AttackCamera.Priority = 10;
-        _turnBase.AttackTimeline.Play();
+        _turnBase.AttackStartTimeline.Play();
         _turnBase.CameraTimeLine.Stop();
         _turnBase.PhaseAnimator.Play("Attack");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
-        _turnBase.Character.Anim.Play("Dushed");
-        await UniTask.Delay(TimeSpan.FromSeconds(10));
+        _turnBase.Character.Anim.SetBool("Dush", true);
+        await UniTask.Delay(TimeSpan.FromSeconds(3));
         _animeFinish = true;
-        _turnBase.Character.Anim.SetBool("Run", true);
+        _turnBase.Character.Anim.SetBool("Dushed", true);
     }
 
     public void Exit()
     {
-        _turnBase.CharacterCamera.Priority = 10;
-        _turnBase.AttackCamera.Priority = 0;
+        _turnBase.Character.Rb.velocity = Vector3.zero;
+        _turnBase.Character.Anim.SetBool("Dushed", false);
+        _turnBase.Character.Anim.SetBool("Dush", false);
         _turnBase.AttackTimeline.Stop();
         _animeFinish = false;
         _turnBase.StateChange(TurnBase.Phase.Attack);
@@ -51,8 +50,6 @@ public class AttackStart : IStateMachine
         _turnBase.Character.Rb.velocity = _direction * _speed * 3;
         if (_distance < 10)
         {
-            _turnBase.Character.Rb.velocity = Vector3.zero;
-            _turnBase.Character.Anim.SetBool("Run", false);
             Exit();
         }
     }

@@ -1,6 +1,8 @@
+using System.Diagnostics;
+
 public class PlayerTurn : TurnBase
 {
-    private Phase _phase = Phase.EntTurn;
+    private Phase _phase = Phase.EndTurn;
     public Phase NowPhase
     {
         get => _phase;
@@ -25,7 +27,7 @@ public class PlayerTurn : TurnBase
                 case Phase.AttackEnd:
                     _attackEnd.Enter();
                     break;
-                case Phase.EntTurn:
+                case Phase.EndTurn:
                     _endTurn.Enter();
                     break;
             }
@@ -72,7 +74,7 @@ public class PlayerTurn : TurnBase
             case Phase.AttackEnd:
                 _attackEnd.Update();
                 break;
-            case Phase.EntTurn:
+            case Phase.EndTurn:
                 _endTurn.Update();
                 break;
         }
@@ -97,7 +99,7 @@ public class PlayerTurn : TurnBase
             case Phase.AttackEnd:
                 _attackEnd.FixedUpdate();
                 break;
-            case Phase.EntTurn:
+            case Phase.EndTurn:
                 _endTurn.FixedUpdate();
                 break;
         }

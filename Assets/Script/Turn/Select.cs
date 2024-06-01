@@ -14,8 +14,6 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
-        //_turnBase.CharacterCamera.Priority = 10;
-        //_turnBase.AttackCamera.Priority = 0;
         _turnBase.CameraTimeLine.Play();
         _turnBase.PhaseAnimator.Play("Select");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
@@ -26,16 +24,17 @@ public class Select : IStateMachine
         _turnBase.SelectCardScript.Init(_turn);
         await _turnBase.SelectTimer.Init();
         Exit();
-        _turnBase.StateChange(TurnBase.Phase.AttackStart);
     }
 
     public async void Exit()
     {
+        _turnBase.CameraTimeLine.Stop();
         await _turnBase.SelectCardScript.CardReset();
         foreach (var obj in _turnBase.SelectObject)
         {
             obj.SetActive(false);
         }
+        _turnBase.StateChange(TurnBase.Phase.AttackStart);
     }
 
     public void FixedUpdate()
