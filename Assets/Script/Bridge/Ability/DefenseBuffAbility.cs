@@ -9,6 +9,7 @@ public class DefenseBuffAbility : IAbility
     private int _value;
     public void Use(FieldData data)
     {
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.BuffAbility);
         data.Attacker.DefenseBuff(_value);
     }
 }

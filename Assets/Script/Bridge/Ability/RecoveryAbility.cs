@@ -12,6 +12,7 @@ public class RecoveryAbility : IAbility
     private int _value;
     public void Use(FieldData data)
     {
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Recovery);
         data.Attacker.Recovery(_value);
     }
 }

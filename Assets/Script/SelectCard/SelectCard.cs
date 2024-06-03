@@ -74,6 +74,7 @@ public class SelectCard : MonoBehaviour
         {
             if (Input.GetButtonDown("Left"))
             {
+                AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Click);
                 var setCard = _setCard[(int)SetCard.Left];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -84,6 +85,7 @@ public class SelectCard : MonoBehaviour
             }
             if (Input.GetButtonDown("Right"))
             {
+                AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Click);
                 var setCard = _setCard[(int)SetCard.Right];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -94,6 +96,7 @@ public class SelectCard : MonoBehaviour
             }
             if (Input.GetButtonDown("Up"))
             {
+                AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Click);
                 var setCard = _setCard[(int)SetCard.Up];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
@@ -104,6 +107,7 @@ public class SelectCard : MonoBehaviour
             }
             if (Input.GetButtonDown("Down"))
             {
+                AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Click);
                 var setCard = _setCard[(int)SetCard.Down];
                 Card card = setCard.GetComponentInChildren<Card>();
                 if (FieldData.Instance.Priority > card.Priority) return;
