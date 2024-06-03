@@ -1,6 +1,10 @@
 using Cysharp.Threading.Tasks;
 using System;
 
+
+/// <summary>
+/// ターンが終了したときに実行されるクラス
+/// </summary>
 public class EndTurn : IStateMachine
 {
     private GameManager _gameManager;

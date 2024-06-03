@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
+/// <summary>
+/// 攻撃が終わった時に実行されるクラス
+/// </summary>
 public class AttackEnd : IStateMachine
 {
     private TurnBase _turnBase;
@@ -35,6 +35,10 @@ public class AttackEnd : IStateMachine
     {
     }
 
+    /// <summary>
+    /// 特殊な効果を発動する
+    /// </summary>
+    /// <returns></returns>
     async UniTask UseSpecialAbility()
     {
         var data = FieldData.Instance;

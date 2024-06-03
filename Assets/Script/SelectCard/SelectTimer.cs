@@ -3,15 +3,18 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Selectフェイズを一定時間で切り替えるクラス
+/// </summary>
 public class SelectTimer : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("何秒でフェイズを終了するか")]
     private int _maxTimer;
 
-    [SerializeField]
+    [SerializeField, Tooltip("タイマーのカウント表示")]
     private Text _timerCount;
 
-    [SerializeField]
+    [SerializeField, Tooltip("タイマーのゲージ")]
     private Image _timerGauge;
 
     private int _defaultTimer;

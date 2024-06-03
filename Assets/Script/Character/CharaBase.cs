@@ -4,7 +4,7 @@ using static GameManager;
 
 public class CharaBase : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("キャラクターのアニメーション")]
     private Animator _animl;
     public Animator Anim => _animl;
 
@@ -14,14 +14,14 @@ public class CharaBase : MonoBehaviour
     private float _speed = 20f;
     public float Speed => _speed;
 
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃するときに移動する場所")]
     private Transform _movePos;
     public Transform MovePos => _movePos;
 
     private Vector3 _basePos;
     public Vector3 BasePos { get => _basePos; set => _basePos = value; }
 
-    [SerializeField]
+    [SerializeField, Tooltip("アタックの間隔")]
     private float _interval;
     public float Interval => _interval;
 
@@ -51,27 +51,27 @@ public class CharaBase : MonoBehaviour
         }
     }
 
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃力の初期値")]
     private int _attack;
     public int Attack { get => _attack; set => _attack = value; }
 
-    [SerializeField]
+    [SerializeField,Tooltip("防御力の初期値")]
     private int _defense;
     public int Defense { get => _defense; set => _defense = value; }
 
-    [SerializeField]
+    [SerializeField,Tooltip("攻撃力アップのエフェクト")]
     private ParticleSystem _attackBuffParticle;
     public ParticleSystem AttackBuffParticle => _attackBuffParticle;
 
-    [SerializeField]
+    [SerializeField, Tooltip("防御力アップのエフェクト")]
     private ParticleSystem _defenseBuffParticle;
     public ParticleSystem DefenseBuffParticle => _defenseBuffParticle;
 
-    [SerializeField]
+    [SerializeField, Tooltip("回復のエフェクト")]
     private ParticleSystem _recoveryParticle;
     public ParticleSystem RecoveryParticle => _recoveryParticle;
 
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃のエフェクト")]
     private ParticleSystem[] _damageParticle;
     public ParticleSystem[] DamageParticle => _damageParticle;
 

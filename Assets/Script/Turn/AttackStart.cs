@@ -2,6 +2,10 @@ using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
 
+
+/// <summary>
+/// キャラが攻撃を開始するときに実行されるクラス
+/// </summary>
 public class AttackStart : IStateMachine
 {
     private TurnBase _turnBase;
@@ -15,6 +19,7 @@ public class AttackStart : IStateMachine
     public AttackStart(TurnBase turnBase)
     {
         _turnBase = turnBase;
+        //移動先のベクトルを計算
         _direction = (_turnBase.Character.MovePos.position - _turnBase.Character.transform.position).normalized;
         _movePos = _turnBase.Character.MovePos;
         _interval = _turnBase.Character.Interval;

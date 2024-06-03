@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     EnemyTurn _enemy;
 
+    //ƒLƒƒƒ‰‚Ìƒ^[ƒ“‚ªØ‚è‘Ö‚í‚Á‚½‚ÉŒø‰Ê‚Ì‘ÎÛ‚ğØ‚è‘Ö‚¦‚é
     private NowTurn _turn = NowTurn.None;
     public NowTurn Turn
     {

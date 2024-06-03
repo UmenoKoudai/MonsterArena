@@ -1,6 +1,9 @@
 using Cysharp.Threading.Tasks;
 using System;
 
+/// <summary>
+/// Selectフェイズで実行されるクラス
+/// </summary>
 public class Select : IStateMachine
 {
     private TurnBase _turnBase;
@@ -17,6 +20,7 @@ public class Select : IStateMachine
         _turnBase.CameraTimeLine.Play();
         _turnBase.PhaseAnimator.Play("Select");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
+        //Selectで使用するオブジェクトを表示させる
         foreach (var obj in _turnBase.SelectObject)
         {
             obj.SetActive(true);
@@ -30,6 +34,7 @@ public class Select : IStateMachine
     {
         _turnBase.CameraTimeLine.Stop();
         await _turnBase.SelectCardScript.CardReset();
+        //Selectで使用するオブジェクトを非表示にする
         foreach (var obj in _turnBase.SelectObject)
         {
             obj.SetActive(false);

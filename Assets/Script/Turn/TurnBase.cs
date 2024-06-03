@@ -50,7 +50,7 @@ public class TurnBase : MonoBehaviour
     private PlayableDirector _attackTimeline;
     public PlayableDirector AttackTimeline => _attackTimeline;
 
-
+    //ƒoƒt‚â‰ñ•œ“™‚Ì“ÁŽê‚ÈŒø‰Ê
     private List<IAbility> _specialAbility = new List<IAbility>();
     public List<IAbility> SpecialAbility => _specialAbility;
 

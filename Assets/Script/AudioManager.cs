@@ -2,20 +2,21 @@ using System;
 using UnityEngine;
 using static AudioManager.BGM;
 
+/// <summary>
+/// 音楽を管理するクラス
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("このシーンで流すBGMを選択")]
     private BGMClip _bgmEnum;
 
-    [SerializeField]
+    [SerializeField, Tooltip("BGMの設定をする")]
     private BGM _bgmClass;
     public BGM BGMClass => _bgmClass;
 
-    [SerializeField]
+    [SerializeField, Tooltip("SEの設定をする")]
     private SE _seClass;
     public SE SeClass => _seClass;
-
-    [SerializeField]
 
     private static AudioManager _instance;
     public static AudioManager Instance
@@ -35,6 +36,9 @@ public class AudioManager : MonoBehaviour
         AudioManager.Instance._bgmClass.Play(_bgmEnum);
     }
 
+    /// <summary>
+    /// BGMを管理するクラス
+    /// </summary>
     [Serializable]
     public class BGM
     {
@@ -57,6 +61,9 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// SEを管理するクラス
+    /// </summary>
     [Serializable]
     public class SE
     {

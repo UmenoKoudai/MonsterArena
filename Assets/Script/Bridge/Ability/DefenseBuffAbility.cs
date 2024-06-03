@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// –hŒä—ÍƒAƒbƒv‚ÌŒø‰Ê
+/// </summary>
 [SerializeField]
 public class DefenseBuffAbility : IAbility
 {
