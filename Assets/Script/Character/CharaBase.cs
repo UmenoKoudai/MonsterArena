@@ -46,7 +46,6 @@ public class CharaBase : MonoBehaviour
         {
             _hpBar.value = _defaultHp - value;
             _hp = value;
-            if (_hp < 0) FindObjectOfType<GameManager>().TurnChange(NowTurn.GameEnd);
             if (_hp > _defaultHp) Hp = _defaultHp;
         }
     }

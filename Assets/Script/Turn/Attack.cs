@@ -23,7 +23,6 @@ public class Attack : IStateMachine
 
     public async void Enter()
     {
-        _turnBase.AttackTimeline.Play();
         _selectCard = FieldData.Instance.SelectCard;
         int selectCount = _selectCard.Count;
         for (int i = 0; i < selectCount; i++)
@@ -57,7 +56,6 @@ public class Attack : IStateMachine
 
     public void Exit()
     {
-        _turnBase.AttackTimeline.Stop();
         _turnBase.StateChange(TurnBase.Phase.AttackEnd);
     }
 

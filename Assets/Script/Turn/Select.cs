@@ -17,7 +17,6 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
-        _turnBase.CameraTimeLine.Play();
         _turnBase.PhaseAnimator.Play("Select");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         //Selectで使用するオブジェクトを表示させる
@@ -32,7 +31,6 @@ public class Select : IStateMachine
 
     public async void Exit()
     {
-        _turnBase.CameraTimeLine.Stop();
         await _turnBase.SelectCardScript.CardReset();
         //Selectで使用するオブジェクトを非表示にする
         foreach (var obj in _turnBase.SelectObject)

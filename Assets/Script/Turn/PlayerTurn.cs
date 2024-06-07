@@ -1,4 +1,6 @@
+using System;
 using System.Diagnostics;
+using UnityEngine;
 
 public class PlayerTurn : TurnBase
 {
@@ -13,6 +15,8 @@ public class PlayerTurn : TurnBase
             switch(_phase)
             {
                 case Phase.Stand:
+                    PlayerCamera.Priority = 10;
+                    EnemyCamera.Priority = 0;
                     _stand.Enter();
                     break;
                 case Phase.Select:
@@ -110,5 +114,10 @@ public class PlayerTurn : TurnBase
     public override void StateChange(Phase change)
     {
         NowPhase = change;
+    }
+
+    public void SelectSkip()
+    {
+        StateChange(Phase.AttackStart);
     }
 }

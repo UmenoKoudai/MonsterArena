@@ -28,8 +28,6 @@ public class AttackStart : IStateMachine
 
     public async void Enter()
     {
-        _turnBase.AttackStartTimeline.Play();
-        _turnBase.CameraTimeLine.Stop();
         _turnBase.PhaseAnimator.Play("Attack");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         _turnBase.Character.Anim.SetBool("Dush", true);
@@ -43,7 +41,6 @@ public class AttackStart : IStateMachine
         _turnBase.Character.Rb.velocity = Vector3.zero;
         _turnBase.Character.Anim.SetBool("Dushed", false);
         _turnBase.Character.Anim.SetBool("Dush", false);
-        _turnBase.AttackTimeline.Stop();
         _animeFinish = false;
         _turnBase.StateChange(TurnBase.Phase.Attack);
     }

@@ -90,4 +90,9 @@ public class GameManager : MonoBehaviour
     {
         Turn = changeTurn;
     }
+
+    public void StateCheck()
+    {
+
+    }
 }

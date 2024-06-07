@@ -11,6 +11,8 @@ public class EnemyTurn : TurnBase
             switch (_phase)
             {
                 case Phase.Stand:
+                    PlayerCamera.Priority = 0;
+                    EnemyCamera.Priority = 10;
                     _stand.Enter();
                     break;
                 case Phase.Select:

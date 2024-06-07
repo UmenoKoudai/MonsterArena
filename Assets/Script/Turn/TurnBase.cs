@@ -37,18 +37,14 @@ public class TurnBase : MonoBehaviour
     private Animator _phaseAnimator;
     public Animator PhaseAnimator => _phaseAnimator;
 
-    [Header("演出用のタイムライン")]
-    [SerializeField, Tooltip("Selectカメラのタイムライン")]
-    private PlayableDirector _cameraTimeLine;
-    public PlayableDirector CameraTimeLine => _cameraTimeLine;
+    [Header("キャラ毎のカメラ")]
+    [SerializeField, Tooltip("プレイヤーを注目するカメラ")]
+    private CinemachineVirtualCamera _playerCamera;
+    public CinemachineVirtualCamera PlayerCamera => _playerCamera;
 
-    [SerializeField, Tooltip("AttackStartのタイムライン")]
-    private PlayableDirector _attackStartTimeLine;
-    public PlayableDirector AttackStartTimeline => _attackStartTimeLine;
-
-    [SerializeField, Tooltip("Attackカメラのタイムライン")]
-    private PlayableDirector _attackTimeline;
-    public PlayableDirector AttackTimeline => _attackTimeline;
+    [SerializeField, Tooltip("エネミーを注目するカメラ")]
+    private CinemachineVirtualCamera _enemyCamera;
+    public CinemachineVirtualCamera EnemyCamera => _enemyCamera;
 
     //バフや回復等の特殊な効果
     private List<IAbility> _specialAbility = new List<IAbility>();
