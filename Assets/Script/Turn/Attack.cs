@@ -50,6 +50,7 @@ public class Attack : IStateMachine
             await card.UseAbility();
             FieldData.Instance.DestroyObject(card.gameObject);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
+            GameManager.Instance.StateCheck();
         }
         _useCard.Clear();
     }

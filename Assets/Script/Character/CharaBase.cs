@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 using static GameManager;
@@ -38,7 +39,7 @@ public class CharaBase : MonoBehaviour
 
     [Tooltip("キャラのステータス")]
     [SerializeField]
-    private int _hp;
+    private int _hp = 100;
     public int Hp
     {
         get => _hp;
@@ -73,6 +74,14 @@ public class CharaBase : MonoBehaviour
     [SerializeField, Tooltip("攻撃のエフェクト")]
     private ParticleSystem[] _damageParticle;
     public ParticleSystem[] DamageParticle => _damageParticle;
+
+    [SerializeField, Tooltip("ダメージエフェクトのPrefab")]
+    private GameObject _damageEffectPrefab;
+    public GameObject DamageEffectPrefab => _damageEffectPrefab;
+
+    [SerializeField, Tooltip("キャラ毎のカメラ")]
+    private CinemachineVirtualCamera _camera;
+    public CinemachineVirtualCamera Camera => _camera;
 
     private Rigidbody _rb;
     public Rigidbody Rb

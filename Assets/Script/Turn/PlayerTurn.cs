@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using UnityEngine;
+using Cysharp.Threading;
 
 public class PlayerTurn : TurnBase
 {
@@ -61,6 +62,7 @@ public class PlayerTurn : TurnBase
 
     public void ManualUpdate()
     {
+        DebugLogManager.Log($"PlayerHP:{Character.Hp}");
         switch (_phase)
         {
             case Phase.Stand:
@@ -118,6 +120,12 @@ public class PlayerTurn : TurnBase
 
     public void SelectSkip()
     {
+        SelectCardScript.CardReset();
+        //Selectで使用するオブジェクトを非表示にする
+        foreach (var obj in SelectObject)
+        {
+            obj.SetActive(false);
+        }
         StateChange(Phase.AttackStart);
     }
 }

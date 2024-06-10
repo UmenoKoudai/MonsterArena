@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public class EnemyTurn : TurnBase
 {
     private Phase _phase = Phase.EndTurn;
@@ -54,6 +56,7 @@ public class EnemyTurn : TurnBase
 
     public void ManualUpdate()
     {
+        DebugLogManager.Log($"EnemyHP:{Character.Hp}");
         switch (_phase)
         {
             case Phase.Stand:
@@ -105,5 +108,16 @@ public class EnemyTurn : TurnBase
     public override void StateChange(Phase change)
     {
         NowPhase = change;
+    }
+
+    public void SelectSkip()
+    {
+        SelectCardScript.CardReset();
+        //Selectで使用するオブジェクトを非表示にする
+        foreach (var obj in SelectObject)
+        {
+            obj.SetActive(false);
+        }
+        StateChange(Phase.AttackStart);
     }
 }

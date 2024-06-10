@@ -9,6 +9,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     EnemyTurn _enemy;
 
+    private ResultState _result;
+
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = FindObjectOfType<GameManager>();
+            }
+            return _instance;
+        }
+    }
+
     //ƒLƒƒƒ‰‚Ìƒ^[ƒ“‚ªØ‚è‘Ö‚í‚Á‚½‚ÉŒø‰Ê‚Ì‘ÎÛ‚ğØ‚è‘Ö‚¦‚é
     private NowTurn _turn = NowTurn.None;
     public NowTurn Turn
@@ -31,7 +46,19 @@ public class GameManager : MonoBehaviour
             }
             else if(_turn == NowTurn.GameEnd)
             {
-                SceneLoader.SceneChange("Result");
+                //SceneLoader.SceneChange("Result");
+                if(_result == ResultState.Player)
+                {
+                    Debug.Log("PlayerWin");
+                }
+                else if(_result == ResultState.Enemy)
+                {
+                    Debug.Log("EnemyWin");
+                }
+                else
+                {
+                    Debug.Log("Draw");
+                }
             }
         }
     }
@@ -42,6 +69,13 @@ public class GameManager : MonoBehaviour
         Player,
         Enemy,
         GameEnd,
+    }
+
+    public enum ResultState
+    {
+        Player,
+        Enemy,
+        Draw,
     }
 
     private void Awake()
@@ -93,6 +127,20 @@ public class GameManager : MonoBehaviour
 
     public void StateCheck()
     {
-
+        if(_player.Character.Hp < 0 && _enemy.Character.Hp < 0)
+        {
+            _result = ResultState.Draw;
+            TurnChange(NowTurn.GameEnd);
+        }
+        else if(_player.Character.Hp < 0)
+        {
+            _result = ResultState.Enemy;
+            TurnChange(NowTurn.GameEnd);
+        }
+        else if(_enemy.Character.Hp < 0)
+        {
+            _result = ResultState.Player;
+            TurnChange(NowTurn.GameEnd);
+        }
     }
 }

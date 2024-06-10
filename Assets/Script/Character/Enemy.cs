@@ -10,11 +10,19 @@ public class Enemy : CharaBase
         Rb = GetComponent<Rigidbody>();
         HpBar.maxValue = Hp;
         HpBar.value = DefaultHp - Hp;
+        DefaultHp = Hp;
+        Debug.Log($"E{Hp}");
     }
 
     public override void Damage(int damage)
     {
+        Debug.Log($"EnemyHP{Hp}");
         Hp -= Mathf.Abs(damage - Defense);
+        Debug.Log($"EnemyDamage{Mathf.Abs(damage - Defense)}");
+        Debug.Log($"EnemyHP{Hp}");
+        var effect = Instantiate(DamageEffectPrefab, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + 5, transform.position.z), Quaternion.identity);
+        effect.transform.LookAt(Camera.transform.position);
+        effect.GetComponent<DamageEffect>().DamageDisplay(Mathf.Abs(damage - Defense));
         if (Mathf.Abs(damage - Defense) < 10)
         {
             DamageParticle[0].Play();

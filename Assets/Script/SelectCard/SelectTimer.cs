@@ -17,13 +17,13 @@ public class SelectTimer : MonoBehaviour
     [SerializeField, Tooltip("タイマーのゲージ")]
     private Image _timerGauge;
 
-    private int _defaultTimer;
+    private int _defaultTimer = 99;
 
     public async UniTask Init()
     {
         _timerGauge.fillAmount = 1;
         _timerCount.text = _maxTimer.ToString();
-        _defaultTimer = _maxTimer;
+        _maxTimer = _defaultTimer;
         await Timer();
     }
 
@@ -36,6 +36,5 @@ public class SelectTimer : MonoBehaviour
             _timerGauge.fillAmount -= 0.1f;
             await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
-        _maxTimer = _defaultTimer;
     }
 }
