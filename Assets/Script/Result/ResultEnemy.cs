@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ResultEnemy : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ResultEnemy : MonoBehaviour
     private ResultState _result;
     [SerializeField, Tooltip("土煙のエフェクト")]
     private GameObject _effect;
+    [SerializeField, Tooltip("リザルトの表示")]
+    private PlayableDirector _resultTimeline;
 
     enum ResultState
     {
@@ -25,12 +28,14 @@ public class ResultEnemy : MonoBehaviour
         else if (_result == ResultState.Player)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-            GetComponent<Rigidbody>().AddForce(-transform.forward * 10, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(-transform.forward * 100, ForceMode.Impulse);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(_effect, transform.position, Quaternion.identity);
+        Debug.Log("爆発");
+        _resultTimeline.Play();
+        Instantiate(_effect, other.transform.position, Quaternion.identity);
     }
 }
