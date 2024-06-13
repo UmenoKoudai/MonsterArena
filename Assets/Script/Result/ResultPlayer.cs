@@ -21,6 +21,7 @@ public class ResultPlayer : MonoBehaviour
 
     async void Start()
     {
+        Time.timeScale = 1.0f;
         if (_result == ResultState.Player)
         {
             GetComponent<Animator>().Play("Attack3");

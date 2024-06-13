@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 24cc1d829f1c88a46914e5fd59217ef8
+  - enabled: 1
+    path: Assets/Scenes/ResultEnemy.unity
+    guid: c6463cabc2304f043be5686f80051f32
+  - enabled: 1
+    path: Assets/Scenes/ResultPlayer.unity
+    guid: ae050ee84700baa40b58b6562cd2bd15
+  - enabled: 1
+    path: Assets/Scenes/ResultDraw.unity
+    guid: e86cf001ae475f14fa87233d59a24e68
   m_configObjects: {}

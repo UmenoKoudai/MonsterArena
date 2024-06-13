@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -46,17 +47,20 @@ public class GameManager : MonoBehaviour
             }
             else if(_turn == NowTurn.GameEnd)
             {
-                //SceneLoader.SceneChange("Result");
+                Time.timeScale = 0.5f;
                 if(_result == ResultState.Player)
                 {
+                    SceneLoader.SceneChange("ResultPlayer");
                     Debug.Log("PlayerWin");
                 }
                 else if(_result == ResultState.Enemy)
                 {
+                    SceneLoader.SceneChange("ResultEnemy");
                     Debug.Log("EnemyWin");
                 }
                 else
                 {
+                    SceneLoader.SceneChange("ResultDraw");
                     Debug.Log("Draw");
                 }
             }
