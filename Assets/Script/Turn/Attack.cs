@@ -46,10 +46,10 @@ public class Attack : IStateMachine
         foreach(var card in _useCard)
         {
             card.transform.SetParent(_attackField.transform);
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            //await UniTask.Delay(TimeSpan.FromSeconds(1));
             await card.UseAbility();
             FieldData.Instance.DestroyObject(card.gameObject);
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
             GameManager.Instance.StateCheck();
         }
         _useCard.Clear();

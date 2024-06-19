@@ -6595,6 +6595,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1277947270477277207, guid: b2b94a9883758e4429909d4ceee1fd87, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1595570772658127717, guid: b2b94a9883758e4429909d4ceee1fd87, type: 3}
       propertyPath: m_Name
       value: Enemy

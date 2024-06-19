@@ -16,10 +16,7 @@ public class Player : CharaBase
 
     public override void Damage(int damage)
     {
-        Debug.Log($"PlayerHP{Hp}");
         FieldData.Instance.Player.Hp -= Mathf.Abs(damage - Defense);
-        Debug.Log($"PlayerDamage{Mathf.Abs(damage - Defense)}");
-        Debug.Log($"PlayerHP{Hp}");
         var effect = Instantiate(DamageEffectPrefab, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + 5, transform.position.z), Quaternion.identity);
         effect.transform.LookAt(Camera.transform.position);
         effect.GetComponent<DamageEffect>().DamageDisplay(Mathf.Abs(damage - Defense));

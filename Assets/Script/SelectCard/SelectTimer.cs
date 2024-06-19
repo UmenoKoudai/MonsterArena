@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,23 +19,36 @@ public class SelectTimer : MonoBehaviour
     private Image _timerGauge;
 
     private int _defaultTimer = 99;
+    private float _gaugeCount;
 
-    public async UniTask Init()
+    public async UniTask Init(CancellationToken token)
     {
+        Debug.Log($"Init{_maxTimer}");
         _timerGauge.fillAmount = 1;
         _timerCount.text = _maxTimer.ToString();
         _maxTimer = _defaultTimer;
-        await Timer();
+        _gaugeCount = 1 / _maxTimer;
+        await Timer(token);
     }
 
-    async UniTask Timer()
+    async UniTask Timer(CancellationToken token)
     {
+        Debug.Log($"開始した時の時間{_maxTimer}");
         while (_maxTimer > 0)
         {
-            _maxTimer--;
-            _timerCount.text = _maxTimer.ToString();
-            _timerGauge.fillAmount -= 0.1f;
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            try
+            {
+                _maxTimer--;
+                _timerCount.text = _maxTimer.ToString();
+                _timerGauge.fillAmount -= _gaugeCount;
+                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: token);
+            }
+            catch(OperationCanceledException ex)
+            {
+                Debug.LogError("タイマー処理をキャンセルしました");
+            }
         }
+        _maxTimer = _defaultTimer;
+        Debug.Log($"リセットされたか確認{_maxTimer}");
     }
 }

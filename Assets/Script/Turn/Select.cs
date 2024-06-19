@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
+using System.Threading;
+using Unity.VisualScripting.Antlr3.Runtime;
 
 /// <summary>
 /// Selectフェイズで実行されるクラス
@@ -8,6 +10,8 @@ public class Select : IStateMachine
 {
     private TurnBase _turnBase;
     private SelectCard.Turn _turn;
+    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+    public CancellationToken Token => _cancellationTokenSource.Token;
 
     public Select(TurnBase turnBase, SelectCard.Turn turn)
     {
@@ -25,12 +29,13 @@ public class Select : IStateMachine
             obj.SetActive(true);
         }
         _turnBase.SelectCardScript.Init(_turn);
-        await _turnBase.SelectTimer.Init();
+        await _turnBase.SelectTimer.Init(Token);
         Exit();
     }
 
     public async void Exit()
     {
+        _cancellationTokenSource.Cancel();
         await _turnBase.SelectCardScript.CardReset();
         //Selectで使用するオブジェクトを非表示にする
         foreach (var obj in _turnBase.SelectObject)

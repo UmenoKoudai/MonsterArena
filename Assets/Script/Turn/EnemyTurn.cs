@@ -112,12 +112,6 @@ public class EnemyTurn : TurnBase
 
     public void SelectSkip()
     {
-        SelectCardScript.CardReset();
-        //Selectで使用するオブジェクトを非表示にする
-        foreach (var obj in SelectObject)
-        {
-            obj.SetActive(false);
-        }
-        StateChange(Phase.AttackStart);
+        _select.Exit();
     }
 }
