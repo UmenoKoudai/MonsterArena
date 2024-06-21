@@ -24,6 +24,7 @@ public class ResultPlayer : MonoBehaviour
         Time.timeScale = 1.0f;
         if (_result == ResultState.Player)
         {
+            AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Kick);
             GetComponent<Animator>().Play("Attack3");
         }
         else if(_result == ResultState.Enemy)
@@ -35,7 +36,9 @@ public class ResultPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Bomb);
         _resultTimeline.Play();
         Instantiate(_effect, transform.position, Quaternion.identity);
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.KO);
     }
 }

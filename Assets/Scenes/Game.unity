@@ -2013,30 +2013,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _bgmEnum
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _seClass._seClip.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _seClass._seClip.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d5281de3a8d4ef459e9be0080ac8ae5, type: 3}
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _seClass._seClip.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1d6045d0ae62ffe4987dd377ab203ad3, type: 3}
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _seClass._seClip.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9c2af3a39dcd5da4c8bf73e279351b38, type: 3}
-    - target: {fileID: 889670012543256966, guid: 801e677794c4001449bc2abe360758c4, type: 3}
-      propertyPath: _seClass._seClip.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: b7ed15024759f1541846c61c2f833800, type: 3}
     - target: {fileID: 4207293184184100827, guid: 801e677794c4001449bc2abe360758c4, type: 3}
       propertyPath: m_Name
       value: AudioManager

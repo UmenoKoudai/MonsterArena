@@ -11,7 +11,6 @@ public class Enemy : CharaBase
         HpBar.maxValue = Hp;
         HpBar.value = DefaultHp - Hp;
         DefaultHp = Hp;
-        Debug.Log($"E{Hp}");
     }
 
     public override void Damage(int damage)

@@ -78,6 +78,9 @@ public class AudioManager : MonoBehaviour
             BuffAbility,
             Recovery,
             Click,
+            Kick,
+            KO,
+            Bomb,
         }
 
         public void Play(SEClip clip) 

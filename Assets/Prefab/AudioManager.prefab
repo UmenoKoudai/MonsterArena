@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fc3e0bb75812441845bf394125feff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bgmEnum: 1
   _bgmClass:
     _bgmSound: {fileID: 6543067857018840499}
     _bgmClip:
@@ -54,8 +55,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a4cdaaf323b54484388d784ec62eb15b, type: 3}
   _seClass:
     _seSound: {fileID: 6305648265592955839}
-    _seClip: []
-  _bgmEnum: 0
+    _seClip:
+    - {fileID: 8300000, guid: 0d5281de3a8d4ef459e9be0080ac8ae5, type: 3}
+    - {fileID: 8300000, guid: 1d6045d0ae62ffe4987dd377ab203ad3, type: 3}
+    - {fileID: 8300000, guid: 9c2af3a39dcd5da4c8bf73e279351b38, type: 3}
+    - {fileID: 8300000, guid: b7ed15024759f1541846c61c2f833800, type: 3}
+    - {fileID: 8300000, guid: 191bb715369d4ff43b8800ab7afc3296, type: 3}
+    - {fileID: 8300000, guid: 30a7161fcddf60346b8fd5e5f2981b77, type: 3}
+    - {fileID: 8300000, guid: 98c81080270419d448447d0f1954f1ba, type: 3}
 --- !u!82 &6543067857018840499
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +75,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0

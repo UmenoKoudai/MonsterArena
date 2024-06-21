@@ -1,5 +1,7 @@
 using Cinemachine;
+using DG.Tweening.Core.Easing;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -58,10 +60,52 @@ public class TurnBase : MonoBehaviour
         Attack,
         AttackEnd,
         EndTurn,
+
+        MaxPhase,
     }
+
+
+    protected Phase _phase = Phase.EndTurn;
+    public Phase NowPhase
+    {
+        get => _phase;
+        set
+        {
+            if (_phase == value) return;
+            _phase = value;
+            _currentState = _states[(int)_phase];
+            _currentState.Enter();
+            Enter();
+        }
+    }
+
+    protected IStateMachine _currentState;
+    protected IStateMachine[] _states = new IStateMachine[(int)Phase.MaxPhase];
 
     public virtual void StateChange(Phase change)
     {
         Debug.LogError("オーバーライドしていません");
+    }
+
+    protected virtual void Enter()
+    {
+        
+    }
+
+    public virtual void Build()
+    {
+        _states[(int)Phase.Stand] = new Stand(this);
+
+        _stand = new Stand(this);
+        _select = new Select(this, SelectCard.Turn.Player);
+        _attackStart = new AttackStart(this);
+        _attack = new Attack(this);
+        _attackEnd = new AttackEnd(this);
+        _endTurn = new EndTurn(gameManager, changeTurn, this);
+    }
+
+    public void ManualUpdate()
+    {
+        _state.Update();
     }
 }

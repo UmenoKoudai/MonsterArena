@@ -23,7 +23,6 @@ public class SelectTimer : MonoBehaviour
 
     public async UniTask Init(CancellationToken token)
     {
-        Debug.Log($"Init{_maxTimer}");
         _timerGauge.fillAmount = 1;
         _timerCount.text = _maxTimer.ToString();
         _maxTimer = _defaultTimer;
@@ -33,7 +32,6 @@ public class SelectTimer : MonoBehaviour
 
     async UniTask Timer(CancellationToken token)
     {
-        Debug.Log($"開始した時の時間{_maxTimer}");
         while (_maxTimer > 0)
         {
             try
@@ -49,6 +47,5 @@ public class SelectTimer : MonoBehaviour
             }
         }
         _maxTimer = _defaultTimer;
-        Debug.Log($"リセットされたか確認{_maxTimer}");
     }
 }

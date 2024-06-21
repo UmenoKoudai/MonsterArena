@@ -23,6 +23,7 @@ public class ResultEnemy : MonoBehaviour
     {
         if (_result == ResultState.Enemy)
         {
+            AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Kick);
             GetComponent<Animator>().Play("Attack3");
         }
         else if (_result == ResultState.Player)
@@ -34,8 +35,10 @@ public class ResultEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.Bomb);
         Debug.Log("”š”­");
         _resultTimeline.Play();
         Instantiate(_effect, other.transform.position, Quaternion.identity);
+        AudioManager.Instance.SeClass.Play(AudioManager.SE.SEClip.KO);
     }
 }

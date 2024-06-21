@@ -5,40 +5,6 @@ using Cysharp.Threading;
 
 public class PlayerTurn : TurnBase
 {
-    private Phase _phase = Phase.EndTurn;
-    public Phase NowPhase
-    {
-        get => _phase;
-        set
-        {
-            if (_phase == value) return;
-            _phase = value;
-            switch(_phase)
-            {
-                case Phase.Stand:
-                    PlayerCamera.Priority = 10;
-                    EnemyCamera.Priority = 0;
-                    _stand.Enter();
-                    break;
-                case Phase.Select:
-                    _select.Enter();
-                    break;
-                case Phase.AttackStart:
-                    _attackStart.Enter();
-                    break;
-                case Phase.Attack:
-                    _attack.Enter();
-                    break;
-                case Phase.AttackEnd:
-                    _attackEnd.Enter();
-                    break;
-                case Phase.EndTurn:
-                    _endTurn.Enter();
-                    break;
-            }
-        }
-    }
-
     private Stand _stand;
     private Select _select;
     private AttackStart _attackStart;
@@ -51,64 +17,19 @@ public class PlayerTurn : TurnBase
     /// <param name="changeTurn"></param>
     public void Init(GameManager gameManager, GameManager.NowTurn changeTurn)
     {
-        _stand = new Stand(this);
-        _select = new Select(this, SelectCard.Turn.Player);
-        _attackStart = new AttackStart(this);
-        _attack = new Attack(this);
-        _attackEnd = new AttackEnd(this);
-        _endTurn = new EndTurn(gameManager, changeTurn, this);
+        Build()
         StateChange(Phase.Stand);
     }
 
-    public void ManualUpdate()
+    public void Enter()
     {
-        DebugLogManager.Log($"PlayerHP:{Character.Hp}");
-        switch (_phase)
-        {
-            case Phase.Stand:
-                _stand.Update();
-                break;
-            case Phase.Select:
-                _select.Update();
-                break;
-            case Phase.AttackStart:
-                _attackStart.Update();
-                break;
-            case Phase.Attack:
-                _attack.Update();
-                break;
-            case Phase.AttackEnd:
-                _attackEnd.Update();
-                break;
-            case Phase.EndTurn:
-                _endTurn.Update();
-                break;
-        }
+        PlayerCamera.Priority = 10;
+        EnemyCamera.Priority = 0;
     }
 
     public void ManualFixedUpdate()
     {
-        switch (_phase)
-        {
-            case Phase.Stand:
-                _stand.FixedUpdate();
-                break;
-            case Phase.Select:
-                _select.FixedUpdate();
-                break;
-            case Phase.AttackStart:
-                _attackStart.FixedUpdate();
-                break;
-            case Phase.Attack:
-                _attack.FixedUpdate();
-                break;
-            case Phase.AttackEnd:
-                _attackEnd.FixedUpdate();
-                break;
-            case Phase.EndTurn:
-                _endTurn.FixedUpdate();
-                break;
-        }
+        _state.FixedUpdate();
     }
 
     /// <summary>ステートを変える</summary>
@@ -120,6 +41,7 @@ public class PlayerTurn : TurnBase
 
     public void SelectSkip()
     {
-        _select.Exit();
+        if(_phase == Phase.Select)
+            _state.Exit();
     }
 }

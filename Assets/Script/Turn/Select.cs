@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using Unity.VisualScripting.Antlr3.Runtime;
 
@@ -10,8 +11,10 @@ public class Select : IStateMachine
 {
     private TurnBase _turnBase;
     private SelectCard.Turn _turn;
-    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+    private CancellationTokenSource _cancellationTokenSource;
     public CancellationToken Token => _cancellationTokenSource.Token;
+
+    int a = 0;
 
     public Select(TurnBase turnBase, SelectCard.Turn turn)
     {
@@ -21,8 +24,10 @@ public class Select : IStateMachine
 
     public async void Enter()
     {
+        _cancellationTokenSource = new CancellationTokenSource();
         _turnBase.PhaseAnimator.Play("Select");
         await UniTask.Delay(TimeSpan.FromSeconds(1));
+        DebugLogManager.Log("Select" + a);
         //Selectで使用するオブジェクトを表示させる
         foreach (var obj in _turnBase.SelectObject)
         {

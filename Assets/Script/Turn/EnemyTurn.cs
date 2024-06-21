@@ -56,7 +56,6 @@ public class EnemyTurn : TurnBase
 
     public void ManualUpdate()
     {
-        DebugLogManager.Log($"EnemyHP:{Character.Hp}");
         switch (_phase)
         {
             case Phase.Stand:
