@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private ResultState _result;
 
+    public float SelectTimer { get; set; }
+
     private static GameManager _instance;
     public static GameManager Instance
     {

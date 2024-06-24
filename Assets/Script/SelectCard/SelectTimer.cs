@@ -20,32 +20,47 @@ public class SelectTimer : MonoBehaviour
 
     private int _defaultTimer = 99;
     private float _gaugeCount;
+    private float _timer;
 
-    public async UniTask Init(CancellationToken token)
+    public void Init()
     {
         _timerGauge.fillAmount = 1;
         _timerCount.text = _maxTimer.ToString();
         _maxTimer = _defaultTimer;
         _gaugeCount = 1 / _maxTimer;
-        await Timer(token);
+        GameManager.Instance.SelectTimer = _maxTimer;
+        //await Timer(token);
     }
 
-    async UniTask Timer(CancellationToken token)
+    public void ManualUpdate()
     {
-        while (_maxTimer > 0)
+        _timer += Time.deltaTime;
+        if(_timer > 1)
         {
-            try
-            {
-                _maxTimer--;
-                _timerCount.text = _maxTimer.ToString();
-                _timerGauge.fillAmount -= _gaugeCount;
-                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: token);
-            }
-            catch(OperationCanceledException ex)
-            {
-                Debug.LogError("タイマー処理をキャンセルしました");
-            }
+            _maxTimer--;
+            _timerCount.text = _maxTimer.ToString();
+            _timerGauge.fillAmount -= _gaugeCount;
+            _timer = 0;
         }
-        _maxTimer = _defaultTimer;
+        GameManager.Instance.SelectTimer = _maxTimer;
     }
+
+    //async UniTask Timer(CancellationToken token)
+    //{
+    //    while (_maxTimer > 0)
+    //    {
+    //        try
+    //        {
+    //            _maxTimer--;
+    //            _timerCount.text = _maxTimer.ToString();
+    //            _timerGauge.fillAmount -= _gaugeCount;
+    //            await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: token);
+    //        }
+    //        catch(OperationCanceledException ex)
+    //        {
+    //            Debug.LogError("タイマー処理をキャンセルしました");
+    //        }
+    //    }
+    //    _maxTimer = _defaultTimer;
+    //}
 }

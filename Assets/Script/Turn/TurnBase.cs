@@ -1,9 +1,6 @@
 using Cinemachine;
-using DG.Tweening.Core.Easing;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class TurnBase : MonoBehaviour
@@ -82,30 +79,40 @@ public class TurnBase : MonoBehaviour
     protected IStateMachine _currentState;
     protected IStateMachine[] _states = new IStateMachine[(int)Phase.MaxPhase];
 
-    public virtual void StateChange(Phase change)
-    {
-        Debug.LogError("オーバーライドしていません");
-    }
 
-    protected virtual void Enter()
-    {
-        
-    }
-
-    public virtual void Build()
+    public virtual void Build(GameManager gameManager, GameManager.NowTurn changeTurn, SelectCard.Turn select)
     {
         _states[(int)Phase.Stand] = new Stand(this);
-
-        _stand = new Stand(this);
-        _select = new Select(this, SelectCard.Turn.Player);
-        _attackStart = new AttackStart(this);
-        _attack = new Attack(this);
-        _attackEnd = new AttackEnd(this);
-        _endTurn = new EndTurn(gameManager, changeTurn, this);
+        _states[(int)Phase.Select] = new Select(this, select);
+        _states[(int)Phase.AttackStart] = new AttackStart(this);
+        _states[(int)Phase.Attack] = new Attack(this);
+        _states[(int)Phase.AttackEnd] = new AttackEnd(this);
+        _states[(int)Phase.EndTurn] = new EndTurn(gameManager, changeTurn, this);
     }
 
     public void ManualUpdate()
     {
-        _state.Update();
+        _currentState.Update();
+    }
+
+    public void ManualFixedUpdate()
+    {
+        _currentState.FixedUpdate();
+    }
+
+    public void SelectSkip()
+    {
+        if (_phase == Phase.Select)
+            _currentState.Exit();
+    }
+
+    public virtual void StateChange(Phase change)
+    {
+        Debug.LogError("StateChange関数はオーバーライドしていません");
+    }
+
+    protected virtual void Enter()
+    {
+        Debug.LogError("Enter関数はオーバライドしていません");
     }
 }
